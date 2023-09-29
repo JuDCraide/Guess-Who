@@ -1,0 +1,15 @@
+{
+    "id": 8,
+    "name": "Claire",
+    "woman": true,
+    "glasses": true,
+    "hat": true,
+    "beard": false,
+    "mustache": false,
+    "bald": false,
+    "blueEyes": false,
+    "bigNose": false,
+    "pinkCheeks": false,
+    "bigMouth": false,
+    "hairColor": "ginger"
+}

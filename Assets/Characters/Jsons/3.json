@@ -1,0 +1,15 @@
+{
+    "id": 3,
+    "name": "Anita",
+    "woman": true,
+    "glasses": false,
+    "hat": false,
+    "beard": false,
+    "mustache": false,
+    "bald": false,
+    "blueEyes": true,
+    "bigNose": false,
+    "pinkCheeks": true,
+    "bigMouth": false,
+    "hairColor": "blond"
+}

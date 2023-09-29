@@ -1,0 +1,15 @@
+{
+    "id": 22,
+    "name": "Sam",
+    "woman": false,
+    "glasses": true,
+    "hat": false,
+    "beard": false,
+    "mustache": false,
+    "bald": true,
+    "blueEyes": false,
+    "bigNose": false,
+    "pinkCheeks": false,
+    "bigMouth": false,
+    "hairColor": "white"
+}

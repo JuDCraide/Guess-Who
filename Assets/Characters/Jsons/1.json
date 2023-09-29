@@ -1,0 +1,15 @@
+{
+    "id": 1,
+    "name": "Alex",
+    "woman": false,
+    "glasses": false,
+    "hat": false,
+    "beard": false,
+    "mustache": true,
+    "bald": false,
+    "blueEyes": false,
+    "bigNose": false,
+    "pinkCheeks": false,
+    "bigMouth": true,
+    "hairColor": "black"
+}

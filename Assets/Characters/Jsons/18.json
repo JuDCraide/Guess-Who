@@ -1,0 +1,15 @@
+{
+    "id": 18,
+    "name": "Peter",
+    "woman": false,
+    "glasses": false,
+    "hat": false,
+    "beard": false,
+    "mustache": false,
+    "bald": false,
+    "blueEyes": true,
+    "bigNose": true,
+    "pinkCheeks": false,
+    "bigMouth": true,
+    "hairColor": "white"
+}

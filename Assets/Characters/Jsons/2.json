@@ -1,0 +1,15 @@
+{
+    "id": 2,
+    "name": "Alfred",
+    "woman": false,
+    "glasses": false,
+    "hat": false,
+    "beard": false,
+    "mustache": true,
+    "bald": false,
+    "blueEyes": true,
+    "bigNose": false,
+    "pinkCheeks": false,
+    "bigMouth": false,
+    "hairColor": "ginger"
+}
