@@ -64,11 +64,15 @@ public class Questions : MonoBehaviour {
             new Question("Does your characther has BLACK HAIR?", chooseCharacter.HasBlackHair),
             new Question("Does your characther has WHITE HAIR?", chooseCharacter.HasWhiteHair),
         };
+
+        //Debug.Log(chooseCharacter.name);
+        //Debug.Log(questions[4].question);
+        //Debug.Log(questions[4].AskQuestion());
     }
 
     // Update is called once per frame
     void Update() {
-        
+       
     }
 
 }

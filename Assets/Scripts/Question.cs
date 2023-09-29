@@ -8,4 +8,8 @@ public class Question {
         this.question = question;
         this.function = function;
     }
+
+    public bool AskQuestion() {
+        return this.function();
+    }
 }

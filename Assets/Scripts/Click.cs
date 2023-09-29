@@ -17,7 +17,6 @@ public class Click : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
-                Debug.Log("Hit");
                 if (hit.collider != null) {                    
                     var go = hit.collider.gameObject.GetComponent<RotateScript>();
                     //Debug.Log(hit.collider.gameObject.GetComponent<Character>().name);
