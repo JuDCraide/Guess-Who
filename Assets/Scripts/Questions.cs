@@ -5,9 +5,12 @@ using UnityEngine;
 public class Questions : MonoBehaviour {
     public List<Question> questions;
     public List<Character> characters;
-    public Character chooseCharacter;
-    private bool updateImages = true;
+    private Character chooseCharacter;
+    public Question curentQuestion;
+    public int curentQuestionIndex;
 
+    public TMPro.TextMeshProUGUI questionNumber;
+    public TMPro.TextMeshProUGUI questionText;
 
     // Start is called before the first frame update
     void Start() {
@@ -49,21 +52,25 @@ public class Questions : MonoBehaviour {
         chooseCharacter = characters[randomindex];
 
         questions = new List<Question>{
-            new Question("Is your characther a WOMAN?", chooseCharacter.IsWoman),
-            new Question("Is your characther a BLOND?", chooseCharacter.IsBlond),
-            new Question("Is your characther a GINGER?", chooseCharacter.IsGinger),
-            new Question("Is your characther a BRUNETTE?", chooseCharacter.IsBrunette),
-            new Question("Is your characther a BALD?", chooseCharacter.IsBald),
-            new Question("Does your characther has HAT?", chooseCharacter.HasHat),
-            new Question("Does your characther has GLASSES?", chooseCharacter.HasGlasses),
-            new Question("Does your characther has BEARD?", chooseCharacter.HasBeard),
-            new Question("Does your characther has MUSTACHE?", chooseCharacter.HasMustache),
-            new Question("Does your characther has BLUE EYES?", chooseCharacter.HasBlueEyes),
-            new Question("Does your characther has BIG NSE?", chooseCharacter.HasBigNose),
-            new Question("Does your characther has PINK CHEEKS?", chooseCharacter.HasPinkCheeks),
-            new Question("Does your characther has BLACK HAIR?", chooseCharacter.HasBlackHair),
-            new Question("Does your characther has WHITE HAIR?", chooseCharacter.HasWhiteHair),
+            new Question("Is your character a WOMAN?", chooseCharacter.IsWoman),
+            new Question("Is your character a BLOND?", chooseCharacter.IsBlond),
+            new Question("Is your character a GINGER?", chooseCharacter.IsGinger),
+            new Question("Is your character a BRUNETTE?", chooseCharacter.IsBrunette),
+            new Question("Is your character a BALD?", chooseCharacter.IsBald),
+            new Question("Does your character has HAT?", chooseCharacter.HasHat),
+            new Question("Does your character has GLASSES?", chooseCharacter.HasGlasses),
+            new Question("Does your character has BEARD?", chooseCharacter.HasBeard),
+            new Question("Does your character has MUSTACHE?", chooseCharacter.HasMustache),
+            new Question("Does your character has BLUE EYES?", chooseCharacter.HasBlueEyes),
+            new Question("Does your character has BIG NOSE?", chooseCharacter.HasBigNose),
+            new Question("Does your character has PINK CHEEKS?", chooseCharacter.HasPinkCheeks),
+            new Question("Does your character has BLACK HAIR?", chooseCharacter.HasBlackHair),
+            new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
         };
+
+        curentQuestionIndex = 0;
+        curentQuestion = questions[curentQuestionIndex];
+        this.UpdateQuestionText();
 
         //Debug.Log(chooseCharacter.name);
         //Debug.Log(questions[4].question);
@@ -72,7 +79,43 @@ public class Questions : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-       
+
+    }
+
+    public void UpdateQuestionText() {
+        questionNumber.SetText("Question " + curentQuestionIndex);
+        questionText.SetText(curentQuestion.question);
+    }
+
+    public void NextQuestion() {
+        curentQuestionIndex++;
+        if (curentQuestionIndex >= questions.Count) {
+            curentQuestionIndex = 0;
+        }
+        curentQuestion = questions[curentQuestionIndex];
+        // Debug.Log(curentQuestionIndex);
+        this.UpdateQuestionText();
+    }
+
+    public void PreviousQuestion() {
+        curentQuestionIndex--;
+        if (curentQuestionIndex <= -1) {
+            curentQuestionIndex = questions.Count - 1;
+        }
+        curentQuestion = questions[curentQuestionIndex];
+        // Debug.Log(curentQuestionIndex);
+        this.UpdateQuestionText();
+    }
+
+
+    public void AskQuestion() {
+        //Debug.Log(questions.Count);
+        curentQuestion.AskQuestion();
+        questions.Remove(curentQuestion);
+        curentQuestionIndex = 0;
+        curentQuestion = questions[curentQuestionIndex];
+        //Debug.Log(questions.Count);
+        this.UpdateQuestionText();
     }
 
 }
