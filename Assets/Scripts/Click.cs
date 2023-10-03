@@ -23,8 +23,6 @@ public class Click : MonoBehaviour
                     if (go != null) {
                         go.Rotate();
                     }
-
-
                 }
             }
         }

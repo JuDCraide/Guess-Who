@@ -23,6 +23,7 @@ public class RotateScript : MonoBehaviour {
             closed = false;
             this.transform.Rotate(-150, 0, 0);
         }
+        Character.UpdateOpenCharacterList(this.GetComponent<Character>().id, closed);
     }
 
 }

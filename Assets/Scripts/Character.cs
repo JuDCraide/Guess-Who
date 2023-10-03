@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +27,7 @@ public class Character : MonoBehaviour {
     public Hair hairColor;
     [SerializeField]
     public GameObject image;
+    public static List<int> openCharacters = new List<int>();
 
     public Character(int id, string name, bool woman, bool glasses, bool hat, bool beard, bool mustache, bool bald, bool blueEyes, bool bigNose, bool pinkCheeks, Hair hairColor) {
         this.id = id;
@@ -55,6 +58,7 @@ public class Character : MonoBehaviour {
         this.pinkCheeks = pinkCheeks;
         this.hairColor = hairColor;
         changeImage();
+        Character.openCharacters.Add(this.id);
     }
 
     public void changeImage() {
@@ -63,6 +67,15 @@ public class Character : MonoBehaviour {
         var sprinte = Resources.Load<Sprite>(path);
         Image image = this.image.GetComponent<Image>();
         image.sprite = sprinte;
+    }
+
+    public static void UpdateOpenCharacterList(int id, bool closeCharacter) {
+        if (closeCharacter) {
+            openCharacters.Remove(id);
+        }
+        else {            
+            openCharacters.Add(id);
+        }
     }
 
     public bool IsWoman() {
