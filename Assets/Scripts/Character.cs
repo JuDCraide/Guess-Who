@@ -73,7 +73,7 @@ public class Character : MonoBehaviour {
         if (closeCharacter) {
             openCharacters.Remove(id);
         }
-        else {            
+        else {
             openCharacters.Add(id);
         }
     }

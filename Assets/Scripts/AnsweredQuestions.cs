@@ -19,7 +19,7 @@ public class AnsweredQuestions : MonoBehaviour {
     }
 
     public void AddAnsware(Question question, bool answer) {
-        int yPosition = 300 - answeres.Count * 55;
+        int yPosition = 320 - answeres.Count * 52;
         Debug.Log(yPosition);
         var g = Instantiate(LateralText, this.gameObject.transform.position + new Vector3(0, yPosition, 0), Quaternion.identity, this.gameObject.transform);
 

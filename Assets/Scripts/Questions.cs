@@ -15,6 +15,10 @@ public class Questions : MonoBehaviour {
 
     public AnsweredQuestions answers;
 
+    public GameObject guessImage;
+    public TMPro.TextMeshProUGUI guessText;
+    public Button guessButton;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -56,10 +60,12 @@ public class Questions : MonoBehaviour {
 
         questions = new List<Question>{
             new Question("Is your character a WOMAN?", chooseCharacter.IsWoman),
+            new Question("Is your character a BALD?", chooseCharacter.IsBald),
             new Question("Is your character a BLOND?", chooseCharacter.IsBlond),
             new Question("Is your character a GINGER?", chooseCharacter.IsGinger),
             new Question("Is your character a BRUNETTE?", chooseCharacter.IsBrunette),
-            new Question("Is your character a BALD?", chooseCharacter.IsBald),
+            new Question("Does your character has BLACK HAIR?", chooseCharacter.HasBlackHair),
+            new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
             new Question("Does your character has HAT?", chooseCharacter.HasHat),
             new Question("Does your character has GLASSES?", chooseCharacter.HasGlasses),
             new Question("Does your character has BEARD?", chooseCharacter.HasBeard),
@@ -67,8 +73,6 @@ public class Questions : MonoBehaviour {
             new Question("Does your character has BLUE EYES?", chooseCharacter.HasBlueEyes),
             new Question("Does your character has BIG NOSE?", chooseCharacter.HasBigNose),
             new Question("Does your character has PINK CHEEKS?", chooseCharacter.HasPinkCheeks),
-            new Question("Does your character has BLACK HAIR?", chooseCharacter.HasBlackHair),
-            new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
         };
 
         this.UpdateQuestionText();
@@ -79,13 +83,38 @@ public class Questions : MonoBehaviour {
     void Update() {
         //Debug.Log(Character.openCharacters.Count);
         if (Character.openCharacters.Count == 1) {
-            Debug.Log("Make guess");
+            this.ShowFinishGame();
         }
+        else {
+            this.HideFinishGame();
+        }
+    }
+    public void ShowFinishGame() {
+        int finalCharacterId = Character.openCharacters[0];
+        guessText.SetText("Do you want to choose " + characters[finalCharacterId - 1].name + " as your final guess?");
+        string path = finalCharacterId.ToString();
+        var sprinte = Resources.Load<Sprite>(path);
+        Image image = this.guessImage.GetComponent<Image>();
+        image.sprite = sprinte;
+
+        guessImage.SetActive(true);
+        guessText.gameObject.SetActive(true);
+        guessButton.gameObject.SetActive(true);
+    }
+
+    public void HideFinishGame() {
+        guessImage.SetActive(false);
+        guessText.gameObject.SetActive(false);
+        guessButton.gameObject.SetActive(false);
+    }
+
+    public void FinishGame() {
+        Debug.Log("Guess MADE");
     }
 
     public void UpdateQuestionText() {
-        if (askedQuestions >= 12) {
-            questionNumber.SetText("You already asked 12 questions.");
+        if (askedQuestions >= 10) {
+            questionNumber.SetText("You already asked 10 questions.");
             questionText.SetText("You can not ask any more questions!");
 
             var buttons = GameObject.FindObjectsOfType<Button>();
