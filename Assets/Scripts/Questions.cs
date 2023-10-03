@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Questions : MonoBehaviour {
     public List<Question> questions;
     public List<Character> characters;
-    private Character chooseCharacter;
+    public Character chooseCharacter;
     public Question curentQuestion;
-    public int curentQuestionIndex;
+    public int curentQuestionIndex = 0;
+    public int askedQuestions = 0;
 
     public TMPro.TextMeshProUGUI questionNumber;
     public TMPro.TextMeshProUGUI questionText;
+
+    public AnsweredQuestions answers;
 
     // Start is called before the first frame update
     void Start() {
@@ -68,13 +71,8 @@ public class Questions : MonoBehaviour {
             new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
         };
 
-        curentQuestionIndex = 0;
-        curentQuestion = questions[curentQuestionIndex];
         this.UpdateQuestionText();
 
-        //Debug.Log(chooseCharacter.name);
-        //Debug.Log(questions[4].question);
-        //Debug.Log(questions[4].AskQuestion());
     }
 
     // Update is called once per frame
@@ -83,8 +81,20 @@ public class Questions : MonoBehaviour {
     }
 
     public void UpdateQuestionText() {
-        questionNumber.SetText("Question " + curentQuestionIndex);
-        questionText.SetText(curentQuestion.question);
+        if (askedQuestions >= 12) {
+            questionNumber.SetText("You already asked 12 questions.");
+            questionText.SetText("You can not ask any more questions!");
+
+            var buttons = GameObject.FindObjectsOfType<Button>();
+            foreach (Button button in buttons) {
+                button.interactable = false;
+            }
+        }
+        else {
+            curentQuestion = questions[curentQuestionIndex];
+            questionNumber.SetText("Question " + curentQuestionIndex + 1);
+            questionText.SetText(curentQuestion.question);
+        }
     }
 
     public void NextQuestion() {
@@ -92,8 +102,6 @@ public class Questions : MonoBehaviour {
         if (curentQuestionIndex >= questions.Count) {
             curentQuestionIndex = 0;
         }
-        curentQuestion = questions[curentQuestionIndex];
-        // Debug.Log(curentQuestionIndex);
         this.UpdateQuestionText();
     }
 
@@ -102,19 +110,17 @@ public class Questions : MonoBehaviour {
         if (curentQuestionIndex <= -1) {
             curentQuestionIndex = questions.Count - 1;
         }
-        curentQuestion = questions[curentQuestionIndex];
-        // Debug.Log(curentQuestionIndex);
         this.UpdateQuestionText();
     }
 
 
     public void AskQuestion() {
-        //Debug.Log(questions.Count);
-        curentQuestion.AskQuestion();
+        bool answer = curentQuestion.AskQuestion();
+        answers.AddAnsware(curentQuestion, answer);
+
         questions.Remove(curentQuestion);
+        askedQuestions++;
         curentQuestionIndex = 0;
-        curentQuestion = questions[curentQuestionIndex];
-        //Debug.Log(questions.Count);
         this.UpdateQuestionText();
     }
 
