@@ -81,7 +81,6 @@ public class Questions : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //Debug.Log(Character.openCharacters.Count);
         if (Character.openCharacters.Count == 1) {
             this.ShowFinishGame();
         }

@@ -63,7 +63,6 @@ public class Character : MonoBehaviour {
 
     public void changeImage() {
         string path = this.id.ToString();
-        //Debug.Log(path);
         var sprinte = Resources.Load<Sprite>(path);
         Image image = this.image.GetComponent<Image>();
         image.sprite = sprinte;
