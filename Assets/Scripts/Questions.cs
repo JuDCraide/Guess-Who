@@ -60,18 +60,18 @@ public class Questions : MonoBehaviour {
 
         questions = new List<Question>{
             new Question("Is your character a WOMAN?", chooseCharacter.IsWoman),
-            new Question("Is your character a BALD?", chooseCharacter.IsBald),
-            new Question("Is your character a BLOND?", chooseCharacter.IsBlond),
-            new Question("Is your character a GINGER?", chooseCharacter.IsGinger),
-            new Question("Is your character a BRUNETTE?", chooseCharacter.IsBrunette),
+            new Question("Is your character BALD?", chooseCharacter.IsBald),
+            new Question("Is your character BLOND?", chooseCharacter.IsBlond),
+            new Question("Is your character GINGER?", chooseCharacter.IsGinger),
+            new Question("Is your character BRUNETTE?", chooseCharacter.IsBrunette),
             new Question("Does your character has BLACK HAIR?", chooseCharacter.HasBlackHair),
             new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
-            new Question("Does your character has HAT?", chooseCharacter.HasHat),
+            new Question("Does your character has a HAT?", chooseCharacter.HasHat),
             new Question("Does your character has GLASSES?", chooseCharacter.HasGlasses),
-            new Question("Does your character has BEARD?", chooseCharacter.HasBeard),
-            new Question("Does your character has MUSTACHE?", chooseCharacter.HasMustache),
+            new Question("Does your character has a BEARD?", chooseCharacter.HasBeard),
+            new Question("Does your character has a MUSTACHE?", chooseCharacter.HasMustache),
             new Question("Does your character has BLUE EYES?", chooseCharacter.HasBlueEyes),
-            new Question("Does your character has BIG NOSE?", chooseCharacter.HasBigNose),
+            new Question("Does your character has a BIG NOSE?", chooseCharacter.HasBigNose),
             new Question("Does your character has PINK CHEEKS?", chooseCharacter.HasPinkCheeks),
         };
 
@@ -123,7 +123,7 @@ public class Questions : MonoBehaviour {
         }
         else {
             curentQuestion = questions[curentQuestionIndex];
-            questionNumber.SetText("Question " + curentQuestionIndex + 1);
+            questionNumber.SetText("Question " + (curentQuestionIndex + 1));
             questionText.SetText(curentQuestion.question);
         }
     }
