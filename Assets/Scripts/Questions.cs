@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,8 @@ public class Questions : MonoBehaviour {
     public Character chooseCharacter;
     public Question curentQuestion;
     public int curentQuestionIndex = 0;
-    public int askedQuestions = 0;
+    public List<Question> askedQuestions;
+    //public int askedQuestions = 0;
 
     public TMPro.TextMeshProUGUI questionNumber;
     public TMPro.TextMeshProUGUI questionText;
@@ -59,21 +61,22 @@ public class Questions : MonoBehaviour {
         chooseCharacter = characters[randomindex];
 
         questions = new List<Question>{
-            new Question("Is your character a WOMAN?", chooseCharacter.IsWoman),
-            new Question("Is your character BALD?", chooseCharacter.IsBald),
-            new Question("Is your character BLOND?", chooseCharacter.IsBlond),
-            new Question("Is your character GINGER?", chooseCharacter.IsGinger),
-            new Question("Is your character BRUNETTE?", chooseCharacter.IsBrunette),
-            new Question("Does your character has BLACK HAIR?", chooseCharacter.HasBlackHair),
-            new Question("Does your character has WHITE HAIR?", chooseCharacter.HasWhiteHair),
-            new Question("Does your character has a HAT?", chooseCharacter.HasHat),
-            new Question("Does your character has GLASSES?", chooseCharacter.HasGlasses),
-            new Question("Does your character has a BEARD?", chooseCharacter.HasBeard),
-            new Question("Does your character has a MUSTACHE?", chooseCharacter.HasMustache),
-            new Question("Does your character has BLUE EYES?", chooseCharacter.HasBlueEyes),
-            new Question("Does your character has a BIG NOSE?", chooseCharacter.HasBigNose),
-            new Question("Does your character has PINK CHEEKS?", chooseCharacter.HasPinkCheeks),
+            new Question("Is your character a WOMAN?", Character.IsWoman),
+            new Question("Is your character BALD?", Character.IsBald),
+            new Question("Is your character BLOND?", Character.IsBlond),
+            new Question("Is your character GINGER?", Character.IsGinger),
+            new Question("Is your character BRUNETTE?", Character.IsBrunette),
+            new Question("Does your character has BLACK HAIR?", Character.HasBlackHair),
+            new Question("Does your character has WHITE HAIR?", Character.HasWhiteHair),
+            new Question("Does your character has a HAT?", Character.HasHat),
+            new Question("Does your character has GLASSES?", Character.HasGlasses),
+            new Question("Does your character has a BEARD?", Character.HasBeard),
+            new Question("Does your character has a MUSTACHE?", Character.HasMustache),
+            new Question("Does your character has BLUE EYES?", Character.HasBlueEyes),
+            new Question("Does your character has a BIG NOSE?", Character.HasBigNose),
+            new Question("Does your character has PINK CHEEKS?", Character.HasPinkCheeks),
         };
+        askedQuestions = new List<Question>();
 
         this.UpdateQuestionText();
 
@@ -112,7 +115,7 @@ public class Questions : MonoBehaviour {
     }
 
     public void UpdateQuestionText() {
-        if (askedQuestions >= 10) {
+        if (askedQuestions.Count >= 10) {
             questionNumber.SetText("You already asked 10 questions.");
             questionText.SetText("You can not ask any more questions!");
 
@@ -146,11 +149,11 @@ public class Questions : MonoBehaviour {
 
 
     public void AskQuestion() {
-        bool answer = curentQuestion.AskQuestion();
+        bool answer = curentQuestion.AskQuestion(chooseCharacter);
         answers.AddAnsware(curentQuestion, answer);
-
+        
         questions.Remove(curentQuestion);
-        askedQuestions++;
+        askedQuestions.Add(curentQuestion);
         curentQuestionIndex = 0;
         this.UpdateQuestionText();
     }

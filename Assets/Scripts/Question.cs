@@ -2,14 +2,14 @@ using System;
 
 public class Question {
     public string question;
-    public Func<bool> function;
+    public Func<Character, bool> function;
 
-    public Question(string question, Func<bool> function) {
+    public Question(string question, Func<Character, bool> function) {
         this.question = question;
         this.function = function;
     }
 
-    public bool AskQuestion() {
-        return this.function();
+    public bool AskQuestion(Character c) {
+        return this.function(c);
     }
 }

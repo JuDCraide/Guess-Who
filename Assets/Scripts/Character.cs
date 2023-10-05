@@ -77,60 +77,60 @@ public class Character : MonoBehaviour {
         }
     }
 
-    public bool IsWoman() {
-        return this.woman;
+    public static bool IsWoman(Character c) {
+        return c.woman;
     }
 
-    public bool HasHat() {
-        return this.hat;
+    public static bool HasHat(Character c) {
+        return c.hat;
     }
 
-    public bool HasGlasses() {
-        return this.glasses;
+    public static bool HasGlasses(Character c) {
+        return c.glasses;
     }
 
-    public bool HasBeard() {
-        return this.beard;
+    public static bool HasBeard(Character c) {
+        return c.beard;
     }
 
-    public bool HasMustache() {
-        return this.mustache;
+    public static bool HasMustache(Character c) {
+        return c.mustache;
     }
 
-    public bool IsBald() {
-        return this.bald;
+    public static bool IsBald(Character c) {
+        return c.bald;
     }
 
-    public bool HasBlueEyes() {
-        return this.blueEyes;
+    public static bool HasBlueEyes(Character c) {
+        return c.blueEyes;
     }
 
-    public bool HasBigNose() {
-        return this.bigNose;
+    public static bool HasBigNose(Character c) {
+        return c.bigNose;
     }
 
-    public bool HasPinkCheeks() {
-        return this.pinkCheeks;
+    public static bool HasPinkCheeks(Character c) {
+        return c.pinkCheeks;
     }
 
-    public bool IsBlond() {
-        return this.hairColor == Hair.blond;
+    public static bool IsBlond(Character c) {
+        return c.hairColor == Hair.blond;
     }
 
-    public bool IsGinger() {
-        return this.hairColor == Hair.ginger;
+    public static bool IsGinger(Character c) {
+        return c.hairColor == Hair.ginger;
     }
 
-    public bool IsBrunette() {
-        return this.hairColor == Hair.brunette;
+    public static bool IsBrunette(Character c) {
+        return c.hairColor == Hair.brunette;
     }
 
-    public bool HasBlackHair() {
-        return this.hairColor == Hair.black;
+    public static bool HasBlackHair(Character c) {
+        return c.hairColor == Hair.black;
     }
 
-    public bool HasWhiteHair() {
-        return this.hairColor == Hair.white;
+    public static bool HasWhiteHair(Character c) {
+        return c.hairColor == Hair.white;
     }
 
 }
