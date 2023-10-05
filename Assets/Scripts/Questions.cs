@@ -9,9 +9,8 @@ public class Questions : MonoBehaviour {
     public List<Character> characters;
     public Character chooseCharacter;
     public Question curentQuestion;
-    public int curentQuestionIndex = 0;
+    public int curentQuestionIndex;
     public List<Question> askedQuestions;
-    //public int askedQuestions = 0;
 
     public TMPro.TextMeshProUGUI questionNumber;
     public TMPro.TextMeshProUGUI questionText;
@@ -22,7 +21,7 @@ public class Questions : MonoBehaviour {
     public TMPro.TextMeshProUGUI guessText;
     public Button guessButton;
 
-    // Start is called before the first frame update
+
     void Start() {
 
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
@@ -33,6 +32,7 @@ public class Questions : MonoBehaviour {
             characters[r] = tmp;
         }
 
+        Character.ClearOpenCharacterList();
         characters[0].InitializeCharacter(1, "Alex", false, false, false, false, true, false, false, false, false, Hair.black);
         characters[1].InitializeCharacter(2, "Alfred", false, false, false, false, true, false, true, false, false, Hair.ginger);
         characters[2].InitializeCharacter(3, "Anita", true, false, false, false, false, false, true, false, true, Hair.blond);
@@ -78,12 +78,11 @@ public class Questions : MonoBehaviour {
             new Question("Does your character has PINK CHEEKS?", Character.HasPinkCheeks),
         };
         askedQuestions = new List<Question>();
+        curentQuestionIndex = 0;
 
         this.UpdateQuestionText();
-
     }
 
-    // Update is called once per frame
     void Update() {
         if (Character.openCharacters.Count == 1) {
             this.ShowFinishGame();
@@ -126,7 +125,9 @@ public class Questions : MonoBehaviour {
 
             var buttons = GameObject.FindObjectsOfType<Button>();
             foreach (Button button in buttons) {
-                button.interactable = false;
+                if (button.name != "GuessButton") {
+                    button.interactable = false;
+                }
             }
         }
         else {
@@ -156,7 +157,7 @@ public class Questions : MonoBehaviour {
     public void AskQuestion() {
         bool answer = curentQuestion.AskQuestion(chooseCharacter);
         answers.AddAnsware(curentQuestion, answer);
-        
+
         questions.Remove(curentQuestion);
         askedQuestions.Add(curentQuestion);
         curentQuestionIndex = 0;

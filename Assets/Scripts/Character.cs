@@ -77,6 +77,10 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public static void ClearOpenCharacterList() {
+        openCharacters.Clear();
+    }
+
     public static bool IsWoman(Character c) {
         return c.woman;
     }
