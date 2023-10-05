@@ -3408,7 +3408,7 @@ MonoBehaviour:
   - {fileID: 350951656}
   - {fileID: 226418056}
   - {fileID: 750564099}
-  undoRedoEvent: Select Character2 (GameObject)
+  undoRedoEvent: Select Table (GameObject)
 --- !u!1 &414762624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,7 +4014,7 @@ MonoBehaviour:
   - {fileID: 37676282}
   - {fileID: 1248018028}
   - {fileID: 1240531209}
-  undoRedoEvent: Color
+  undoRedoEvent: Select Questions (GameObject)
 --- !u!1 &477295690
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,7 +6355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 253, y: -13}
+  m_AnchoredPosition: {x: 220, y: -13}
   m_SizeDelta: {x: 700, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774463473

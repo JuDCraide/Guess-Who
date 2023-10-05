@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Questions : MonoBehaviour {
@@ -93,7 +94,8 @@ public class Questions : MonoBehaviour {
     }
     public void ShowFinishGame() {
         int finalCharacterId = Character.openCharacters[0];
-        guessText.SetText("Do you want to choose " + characters[finalCharacterId - 1].name + " as your final guess?");
+        var finalCharacter = characters[finalCharacterId - 1];
+        guessText.SetText("Do you want to choose " + finalCharacter.name + " as your final guess?");
         string path = finalCharacterId.ToString();
         var sprinte = Resources.Load<Sprite>(path);
         Image image = this.guessImage.GetComponent<Image>();
@@ -111,7 +113,10 @@ public class Questions : MonoBehaviour {
     }
 
     public void FinishGame() {
-        Debug.Log("Guess MADE");
+        int finalCharacterId = Character.openCharacters[0];
+        var finalCharacter = characters[finalCharacterId - 1];
+        StaticGameResume.setData(askedQuestions, finalCharacter, chooseCharacter);
+        SceneManager.LoadScene("End");
     }
 
     public void UpdateQuestionText() {
