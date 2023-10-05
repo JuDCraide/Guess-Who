@@ -1,27 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UI.TableUI;
 
-public class FillTable : MonoBehaviour {
+public class FillEnd : MonoBehaviour {
     public TableUI Questions;
     public TableUI GuessedCharacter;
     public TableUI CorrectCharacter;
-    // Start is called before the first frame update
-    void Start() {
-        //List<Question> questions = new List<Question>{
-        //    new Question("Is your character a WOMAN?", Character.IsWoman),
-        //    new Question("Is your character BALD?", Character.IsBald),
-        //    new Question("Is your character BLOND?", Character.IsBlond),
-        //    new Question("Is your character GINGER?", Character.IsGinger),
-        //    new Question("Is your character BRUNETTE?", Character.IsBrunette),
-        //    new Question("Does your character has BLACK HAIR?", Character.HasBlackHair),
-        //    new Question("Does your character has WHITE HAIR?", Character.HasWhiteHair),
-        //    //new Question("Does your character has a HAT?", Character.HasHat),
-        //    //new Question("Does your character has GLASSES?", Character.HasGlasses),
-        //    //new Question("Does your character has a BEARD?", Character.HasBeard),
-        //};
 
+    public TMPro.TextMeshProUGUI CongratsMessage;
+    public TMPro.TextMeshProUGUI CorrectCharacterText;
+    public TMPro.TextMeshProUGUI GuessedCharacterText;
+    public GameObject CorrectCharacterImage;
+    public GameObject GuessedCharacterImage;
+
+    void Start() {
         int rowsCount = StaticGameResume.askedQuestions.Count + 1;
 
         Questions.Rows = rowsCount;
@@ -30,8 +24,12 @@ public class FillTable : MonoBehaviour {
 
 
         if(StaticGameResume.guessedCharacter.id == StaticGameResume.correctCharacter.id) {
-            Debug.Log("ACERTO");
             CorrectCharacter.gameObject.SetActive(false);
+
+            CongratsMessage.text = "Congratulations you won!";
+        }
+        else {
+            CongratsMessage.text = "You guessed wrong! Try again!";
         }
 
         GuessedCharacter.GetCell(0, 0).text = StaticGameResume.guessedCharacter.name;
@@ -42,6 +40,19 @@ public class FillTable : MonoBehaviour {
             GuessedCharacter.GetCell(i, 0).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.guessedCharacter) ? "Yes" : "No");
             CorrectCharacter.GetCell(i, 0).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctCharacter) ? "Yes" : "No");
         }
+
+        CorrectCharacterText.text = "The character was:\n" + StaticGameResume.correctCharacter.name;
+        GuessedCharacterText.text = "You guessed:\n" + StaticGameResume.guessedCharacter.name;
+
+        string path = StaticGameResume.guessedCharacter.id.ToString();
+        var sprinte = Resources.Load<Sprite>(path);
+        Image image = GuessedCharacterImage.GetComponent<Image>();
+        image.sprite = sprinte;
+
+        path = StaticGameResume.correctCharacter.id.ToString();
+        sprinte = Resources.Load<Sprite>(path);
+        image = CorrectCharacterImage.GetComponent<Image>();
+        image.sprite = sprinte;
     }
 
     // Update is called once per frame

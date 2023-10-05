@@ -11,9 +11,9 @@ public static class StaticGameResume {
             new Question("Is your character BRUNETTE?", Character.IsBrunette),
             new Question("Does your character has BLACK HAIR?", Character.HasBlackHair),
             new Question("Does your character has WHITE HAIR?", Character.HasWhiteHair),
-            //new Question("Does your character has a HAT?", Character.HasHat),
-            //new Question("Does your character has GLASSES?", Character.HasGlasses),
-            //new Question("Does your character has a BEARD?", Character.HasBeard),
+            new Question("Does your character has a HAT?", Character.HasHat),
+            new Question("Does your character has GLASSES?", Character.HasGlasses),
+            new Question("Does your character has a BEARD?", Character.HasBeard),
         };
     public static Character guessedCharacter = new Character(1, "Alex", false, false, false, false, true, false, false, false, false, Hair.black);
     public static Character correctCharacter = new Character(3, "Anita", true, false, false, false, false, false, true, false, true, Hair.blond);
