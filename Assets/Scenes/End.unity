@@ -8102,7 +8102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I you wish to play again click here
+  m_text: If you wish to play again click here
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10141,12 +10141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d88f27b9920bd241a64473b2d2b8c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestionsTable: {fileID: 402219735}
   CongratsMessage: {fileID: 7246419}
   CorrectCharacterText: {fileID: 1165838381}
   GuessedCharacterText: {fileID: 29753921}
   CorrectCharacterImage: {fileID: 1431673761}
   GuessedCharacterImage: {fileID: 1484059147}
+  QuestionsTable: {fileID: 402219735}
 --- !u!1 &1130552104
 GameObject:
   m_ObjectHideFlags: 0
