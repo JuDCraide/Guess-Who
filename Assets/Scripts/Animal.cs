@@ -3,52 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Celoma {
-    acelomado, pseudocelomado, celomado
+public enum Coelomate
+{
+  Acoelomate, Pseudocoelomate, Coelomate
 }
 
-public enum EmbryonicLeaflet{
-    driblastic, triblastic, none
+public enum EmbryonicLeaflet
+{
+    Driblastic, Triblastic, None
 }
 
-public enum MouthOrigin{
-    protostome, deuterostome, none
+public enum MouthOrigin
+{
+    Protostome, Deuterostome, None
 }
 
-public enum Symmetry{
-    radial, bilateral, none
+public enum Symmetry
+{
+    Radial, Bilateral, None
 }
 
-public enum DigestiveSystem {
-    complete, incomplete, none
+public enum DigestiveSystem
+{
+    Complete, Incomplete, None
 }
 
-public enum Skeleton {
-    endoskeleton, exoskeleton, shell, 
+public enum Skeleton
+{
+    Endoskeleton, Exoskeleton, Shell, None
 }
 
-public enum Reproduction{
-    sexually, asexually
+public enum Reproduction
+{
+    Sexually, Asexually
 }
 
-public enum Fecundation {
-    internal, external
+public enum Fecundation
+{
+    Internal, External
 }
 
-public enum Habitat{
-    aquatic, terrestrial, both 
+public enum Habitat
+{
+    Aquatic, Terrestrial, Both
 }
 
-public class Animal : MonoBehaviour {
+public class Animal : MonoBehaviour
+{
     public int id;
     public string name;
     bool intracellularDigestion;
     bool vertebrate;
-    bool haveblood;
+    bool blood;
     bool layEggs;
-    bool canFly;
-    bool haveFur;
-    public Celoma celoma;
+    bool fly;
+    bool fur;
+    public Coelomate celomate;
     public EmbryonicLeaflet embryonicLeaflet;
     public MouthOrigin mouthOrigin;
     public Symmetry symmetry;
@@ -62,44 +72,239 @@ public class Animal : MonoBehaviour {
     public GameObject image;
     public static List<int> openAnimals = new List<int>();
 
-    public Animal(int id, string name) {
+    public Animal(int id, string name,
+        bool intracellularDigestion,
+        bool vertebrate,
+        bool haveblood,
+        bool layEggs,
+        bool canFly,
+        bool haveFur,
+        Coelomate celomate,
+        EmbryonicLeaflet embryonicLeaflet,
+        MouthOrigin mouthOrigin,
+        Symmetry symmetry,
+        DigestiveSystem digestiveSystem,
+        Skeleton skeleton,
+        Reproduction reproduction,
+        Fecundation fecundation,
+        Habitat habitat
+    )    {
         this.id = id;
         this.name = name;
-        this.celoma = celoma;
+        this.celomate = celomate;
+        this.intracellularDigestion;
+        this.vertebrate;
+        this.haveblood;
+        this.layEggs;
+        this.canFly;
+        this.haveFur;
+        this.celomate;
+        this.embryonicLeaflet;
+        this.mouthOrigin;
+        this.symmetry;
+        this.digestiveSystem;
+        this.skeleton;
+        this.reproduction;
+        this.fecundation;
+        this.habitat;
     }
 
-    public void InitializeAnimal(int id, string name) {
+    public void InitializeAnimal(int id, string name, bool intracellularDigestion,
+    bool vertebrate,
+    bool haveblood,
+    bool layEggs,
+    bool canFly,
+    bool haveFur,
+    Coelomate celomate,
+    EmbryonicLeaflet embryonicLeaflet,
+    MouthOrigin mouthOrigin,
+    Symmetry symmetry,
+    DigestiveSystem digestiveSystem,
+    Skeleton skeleton,
+    Reproduction reproduction,
+    Fecundation fecundation,
+    Habitat habitat)
+    {
         this.id = id;
         this.name = name;
-        this.celoma = celoma;
-        
-        
+        this.celomate = celomate;
+
+
         changeImage();
         Animal.openAnimals.Add(this.id);
     }
 
-    public void changeImage() {
+    public void changeImage()
+    {
         string path = this.id.ToString();
         var sprite = Resources.Load<Sprite>(path);
         Image image = this.image.GetComponent<Image>();
         image.sprite = sprite;
     }
 
-    public static void UpdateOpenAnimalList(int id, bool closeAnimal) {
-        if (closeAnimal) {
+    public static void UpdateOpenAnimalList(int id, bool closeAnimal)
+    {
+        if (closeAnimal)
+        {
             openAnimals.Remove(id);
         }
-        else {
+        else
+        {
             openAnimals.Add(id);
         }
     }
 
-    public static void ClearOpenAnimalList() {
+    public static void ClearOpenAnimalList()
+    {
         openAnimals.Clear();
     }
 
-    public static bool IsBlond(Animal c) {
-        return c.hairColor == Hair.blond;
+    public static bool IntracellularDigestion(Animal c)
+    {
+        return c.intracellularDigestion;
     }
+
+    public static bool Vertebrate(Animal c)
+    {
+        return c.vertebrate;
+    }
+
+    public static bool Blood(Animal c)
+    {
+        return c.haveblood;
+    }
+
+    public static bool LayEggs(Animal c)
+    {
+        return c.layEggs;
+    }
+
+    public static bool Fly(Animal c)
+    {
+        return c.canFly;
+    }
+
+    public static bool Fur(Animal c)
+    {
+        return c.haveFur;
+    }
+
+    public static bool CoelomateAcoelomate(Animal c)
+    {
+        return c.celomate == Coelomate.Acoelomate;
+    }
+    public static bool CoelomatePseudocoelomate(Animal c)
+    {
+        return c.celomate == Coelomate.Pseudocoelomate;
+    }
+    public static bool CoelomateCoelomate(Animal c)
+    {
+        return c.celomate == Coelomate.Coelomate;
+    }
+
+    public static bool EmbryonicLeafletDriblastic(Animal c)
+    {
+        return c.embryonicLeaflet == EmbryonicLeaflet.Driblastic;
+    }
+    public static bool EmbryonicLeafletTriblastic(Animal c)
+    {
+        return c.embryonicLeaflet == EmbryonicLeaflet.Triblastic;
+    }
+    public static bool EmbryonicLeafletNone(Animal c)
+    {
+        return c.embryonicLeaflet == EmbryonicLeaflet.None;
+    }
+
+    public static bool MouthOriginProtostome(Animal c)
+    {
+        return c.mouthOrigin == MouthOrigin.Protostome;
+    }
+    public static bool MouthOriginDeuterostome(Animal c)
+    {
+        return c.mouthOrigin == MouthOrigin.Deuterostome;
+    }
+    public static bool MouthOriginNone(Animal c)
+    {
+        return c.mouthOrigin == MouthOrigin.None;
+    }
+
+    public static bool SymmetryRadial(Animal c)
+    {
+        return c.symmetry == Symmetry.Radial;
+    }
+    public static bool SymmetryBilateral(Animal c)
+    {
+        return c.symmetry == Symmetry.Bilateral;
+    }
+    public static bool SymmetryNone(Animal c)
+    {
+        return c.symmetry == Symmetry.None;
+    }
+
+    public static bool DigestiveSystemIncomplete(Animal c)
+    {
+        return c.digestiveSystem == DigestiveSystem.Incomplete;
+    }
+
+    public static bool DigestiveSystemComplete(Animal c)
+    {
+        return c.digestiveSystem == DigestiveSystem.Complete;
+    }
+
+    public static bool DigestiveSystemNone(Animal c)
+    {
+        return c.digestiveSystem == DigestiveSystem.None;
+    }
+
+    public static bool SkeletonExoskeleton(Animal c)
+    {
+        return c.skeleton === Skeleton.Exoskeleton;
+    }
+    public static bool SkeletonEndoskeleton(Animal c)
+    {
+        return c.skeleton === Skeleton.Endoskeleton;
+    }
+    public static bool SkeletonShell(Animal c)
+    {
+        return c.skeleton === Skeleton.Shell;
+    }
+    public static bool SkeletonNone(Animal c)
+    {
+        return c.skeleton === Skeleton.None;
+    }
+
+    public static bool Reproduction.Sexually(Animal c)
+    {
+        return c.reproduction == Reproduction.Sexually;
+    }
+    public static bool Reproduction.Asexually(Animal c)
+    {
+        return c.reproduction == Reproduction.Asexually;
+    }
+
+    public static bool FecundationInternal(Animal c)
+    {
+        return c.fecundation == Fecundation.Internal;
+    }
+    public static bool FecundationExternal(Animal c)
+    {
+        return c.fecundation == Fecundation.External;
+    }
+
+    public static bool HabitatAquatic(Animal c)
+    {
+        return c.habitat == Habitat.Aquatic;
+    }
+
+    public static bool HabitatTerrestrial(Animal c)
+    {
+        return c.habitat == Habitat.Terrestrial;
+    }
+
+    public static bool HabitatBoth(Animal c)
+    {
+        return c.habitat == Habitat.Both;
+    }
+
 
 }
