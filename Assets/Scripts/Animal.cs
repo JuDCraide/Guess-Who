@@ -1,7 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum Coelomate
 {
@@ -43,10 +44,10 @@ public enum Fecundation
     Internal, External
 }
 
-public enum Habitat
-{
-    Aquatic, Terrestrial, Both
-}
+// public enum Habitat
+// {
+//     Aquatic, Terrestrial, Both
+// }
 
 public class Animal : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class Animal : MonoBehaviour
     public Skeleton skeleton;
     public Reproduction reproduction;
     public Fecundation fecundation;
-    public Habitat habitat;
+    // public Habitat habitat;
 
     [SerializeField]
     public GameObject image;
@@ -75,10 +76,10 @@ public class Animal : MonoBehaviour
     public Animal(int id, string name,
         bool intracellularDigestion,
         bool vertebrate,
-        bool haveblood,
+        bool blood,
         bool layEggs,
-        bool canFly,
-        bool haveFur,
+        bool fly,
+        bool fur,
         Coelomate celomate,
         EmbryonicLeaflet embryonicLeaflet,
         MouthOrigin mouthOrigin,
@@ -86,49 +87,63 @@ public class Animal : MonoBehaviour
         DigestiveSystem digestiveSystem,
         Skeleton skeleton,
         Reproduction reproduction,
-        Fecundation fecundation,
-        Habitat habitat
+        Fecundation fecundation
+        //Habitat habitat
     )    {
         this.id = id;
         this.name = name;
         this.celomate = celomate;
-        this.intracellularDigestion;
-        this.vertebrate;
-        this.haveblood;
-        this.layEggs;
-        this.canFly;
-        this.haveFur;
-        this.celomate;
-        this.embryonicLeaflet;
-        this.mouthOrigin;
-        this.symmetry;
-        this.digestiveSystem;
-        this.skeleton;
-        this.reproduction;
-        this.fecundation;
-        this.habitat;
+        this.intracellularDigestion = intracellularDigestion;
+        this.vertebrate = vertebrate;
+        this.blood = blood;
+        this.layEggs = layEggs;
+        this.fly = fly;
+        this.fur = fur;
+        this.celomate = celomate;
+        this.embryonicLeaflet = embryonicLeaflet;
+        this.mouthOrigin = mouthOrigin;
+        this.symmetry = symmetry;
+        this.digestiveSystem = digestiveSystem;
+        this.skeleton = skeleton;
+        this.reproduction = reproduction;
+        this.fecundation = fecundation;
+        //this.habitat = habitat;
     }
 
     public void InitializeAnimal(int id, string name, bool intracellularDigestion,
-    bool vertebrate,
-    bool haveblood,
-    bool layEggs,
-    bool canFly,
-    bool haveFur,
-    Coelomate celomate,
-    EmbryonicLeaflet embryonicLeaflet,
-    MouthOrigin mouthOrigin,
-    Symmetry symmetry,
-    DigestiveSystem digestiveSystem,
-    Skeleton skeleton,
-    Reproduction reproduction,
-    Fecundation fecundation,
-    Habitat habitat)
-    {
+        bool vertebrate,
+        bool blood,
+        bool layEggs,
+        bool fly,
+        bool fur,
+        Coelomate celomate,
+        EmbryonicLeaflet embryonicLeaflet,
+        MouthOrigin mouthOrigin,
+        Symmetry symmetry,
+        DigestiveSystem digestiveSystem,
+        Skeleton skeleton,
+        Reproduction reproduction,
+        Fecundation fecundation
+    //Habitat habitat
+    )    {
         this.id = id;
         this.name = name;
         this.celomate = celomate;
-
+        this.intracellularDigestion = intracellularDigestion;
+        this.vertebrate = vertebrate;
+        this.blood = blood;
+        this.layEggs = layEggs;
+        this.fly = fly;
+        this.fur = fur;
+        this.celomate = celomate;
+        this.embryonicLeaflet = embryonicLeaflet;
+        this.mouthOrigin = mouthOrigin;
+        this.symmetry = symmetry;
+        this.digestiveSystem = digestiveSystem;
+        this.skeleton = skeleton;
+        this.reproduction = reproduction;
+        this.fecundation = fecundation;
+        //this.habitat = habitat;
 
         changeImage();
         Animal.openAnimals.Add(this.id);
@@ -171,7 +186,7 @@ public class Animal : MonoBehaviour
 
     public static bool Blood(Animal c)
     {
-        return c.haveblood;
+        return c.blood;
     }
 
     public static bool LayEggs(Animal c)
@@ -181,12 +196,12 @@ public class Animal : MonoBehaviour
 
     public static bool Fly(Animal c)
     {
-        return c.canFly;
+        return c.fly;
     }
 
     public static bool Fur(Animal c)
     {
-        return c.haveFur;
+        return c.fur;
     }
 
     public static bool CoelomateAcoelomate(Animal c)
@@ -258,26 +273,26 @@ public class Animal : MonoBehaviour
 
     public static bool SkeletonExoskeleton(Animal c)
     {
-        return c.skeleton === Skeleton.Exoskeleton;
+        return c.skeleton == Skeleton.Exoskeleton;
     }
     public static bool SkeletonEndoskeleton(Animal c)
     {
-        return c.skeleton === Skeleton.Endoskeleton;
+        return c.skeleton == Skeleton.Endoskeleton;
     }
     public static bool SkeletonShell(Animal c)
     {
-        return c.skeleton === Skeleton.Shell;
+        return c.skeleton == Skeleton.Shell;
     }
     public static bool SkeletonNone(Animal c)
     {
-        return c.skeleton === Skeleton.None;
+        return c.skeleton == Skeleton.None;
     }
 
-    public static bool Reproduction.Sexually(Animal c)
+    public static bool ReproductionSexually(Animal c)
     {
         return c.reproduction == Reproduction.Sexually;
     }
-    public static bool Reproduction.Asexually(Animal c)
+    public static bool ReproductionAsexually(Animal c)
     {
         return c.reproduction == Reproduction.Asexually;
     }
@@ -291,20 +306,20 @@ public class Animal : MonoBehaviour
         return c.fecundation == Fecundation.External;
     }
 
-    public static bool HabitatAquatic(Animal c)
-    {
-        return c.habitat == Habitat.Aquatic;
-    }
+    // public static bool HabitatAquatic(Animal c)
+    // {
+    //     return c.habitat == Habitat.Aquatic;
+    // }
 
-    public static bool HabitatTerrestrial(Animal c)
-    {
-        return c.habitat == Habitat.Terrestrial;
-    }
+    // public static bool HabitatTerrestrial(Animal c)
+    // {
+    //     return c.habitat == Habitat.Terrestrial;
+    // }
 
-    public static bool HabitatBoth(Animal c)
-    {
-        return c.habitat == Habitat.Both;
-    }
+    // public static bool HabitatBoth(Animal c)
+    // {
+    //     return c.habitat == Habitat.Both;
+    // }
 
 
 }
