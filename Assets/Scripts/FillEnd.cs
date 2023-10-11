@@ -7,10 +7,10 @@ using UnityEngine.UI.TableUI;
 
 public class FillEnd : MonoBehaviour {
     public TMPro.TextMeshProUGUI CongratsMessage;
-    public TMPro.TextMeshProUGUI CorrectCharacterText;
-    public TMPro.TextMeshProUGUI GuessedCharacterText;
-    public GameObject CorrectCharacterImage;
-    public GameObject GuessedCharacterImage;
+    public TMPro.TextMeshProUGUI CorrectAnimalText;
+    public TMPro.TextMeshProUGUI GuessedAnimalText;
+    public GameObject CorrectAnimalImage;
+    public GameObject GuessedAnimalImage;
     public TableUI QuestionsTable;
 
     void Start() {
@@ -21,29 +21,29 @@ public class FillEnd : MonoBehaviour {
         ColorUtility.TryParseHtmlString("#FF3B3E", out red);
         ColorUtility.TryParseHtmlString("#21BC3C", out green);
 
-        QuestionsTable.GetCell(0, 1).text = StaticGameResume.guessedCharacter.name;
-        QuestionsTable.GetCell(0, 2).text = StaticGameResume.correctCharacter.name;
+        QuestionsTable.GetCell(0, 1).text = StaticGameResume.guessedAnimal.name;
+        QuestionsTable.GetCell(0, 2).text = StaticGameResume.correctAnimal.name;
 
         for (int i = 1; i < rowsCount; i++) {
             QuestionsTable.GetCell(i, 0).text = "   " + StaticGameResume.askedQuestions[i - 1].question;
-            QuestionsTable.GetCell(i, 1).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.guessedCharacter) ? "Yes" : "No");
-            QuestionsTable.GetCell(i, 2).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctCharacter) ? "Yes" : "No");
+            QuestionsTable.GetCell(i, 1).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.guessedAnimal) ? "Yes" : "No");
+            QuestionsTable.GetCell(i, 2).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctAnimal) ? "Yes" : "No");
         }
 
-        CorrectCharacterText.text = "The character was:\n" + StaticGameResume.correctCharacter.name;
-        GuessedCharacterText.text = "You guessed:\n" + StaticGameResume.guessedCharacter.name;
+        CorrectAnimalText.text = "The Animal was:\n" + StaticGameResume.correctAnimal.name;
+        GuessedAnimalText.text = "You guessed:\n" + StaticGameResume.guessedAnimal.name;
 
-        string path = StaticGameResume.guessedCharacter.id.ToString();
+        string path = StaticGameResume.guessedAnimal.id.ToString();
         var sprinte = Resources.Load<Sprite>(path);
-        Image image = GuessedCharacterImage.GetComponent<Image>();
+        Image image = GuessedAnimalImage.GetComponent<Image>();
         image.sprite = sprinte;
 
-        path = StaticGameResume.correctCharacter.id.ToString();
+        path = StaticGameResume.correctAnimal.id.ToString();
         sprinte = Resources.Load<Sprite>(path);
-        image = CorrectCharacterImage.GetComponent<Image>();
+        image = CorrectAnimalImage.GetComponent<Image>();
         image.sprite = sprinte;
 
-        if (StaticGameResume.guessedCharacter.id == StaticGameResume.correctCharacter.id) {
+        if (StaticGameResume.guessedAnimal.id == StaticGameResume.correctAnimal.id) {
             CongratsMessage.text = "Congratulations you won!";
             CongratsMessage.color = green;
             QuestionsTable.HeaderColor = green;

@@ -10142,10 +10142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CongratsMessage: {fileID: 7246419}
-  CorrectCharacterText: {fileID: 1165838381}
-  GuessedCharacterText: {fileID: 29753921}
-  CorrectCharacterImage: {fileID: 1431673761}
-  GuessedCharacterImage: {fileID: 1484059147}
+  CorrectAnimalText: {fileID: 1165838381}
+  GuessedAnimalText: {fileID: 29753921}
+  CorrectAnimalImage: {fileID: 1431673761}
+  GuessedAnimalImage: {fileID: 1484059147}
   QuestionsTable: {fileID: 402219735}
 --- !u!1 &1130552104
 GameObject:

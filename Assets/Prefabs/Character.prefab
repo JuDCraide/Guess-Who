@@ -117,9 +117,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8441921101189860568}
   - component: {fileID: 8754753540630206843}
-  - component: {fileID: 1287110904905483516}
   - component: {fileID: 5141486343099200470}
   - component: {fileID: 4228155629608692529}
+  - component: {fileID: 7023105636516963619}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -156,31 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39d7f1d4d5e7e84b90dfe906ac7df3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1287110904905483516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517214356805445278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08975d07bb972d74fa8add1bf0942322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  name: 
-  woman: 0
-  glasses: 0
-  hat: 0
-  beard: 0
-  mustache: 0
-  bald: 0
-  blueEyes: 0
-  bigNose: 0
-  pinkCheeks: 0
-  hairColor: 0
-  image: {fileID: 7176443472411169684}
 --- !u!65 &5141486343099200470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223,6 +198,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.5, z: 0.19}
   m_Center: {x: 0, y: -0.7, z: 0}
+--- !u!114 &7023105636516963619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517214356805445278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb974dd415790d247ace4a45ca487bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  celomate: 0
+  embryonicLeaflet: 0
+  mouthOrigin: 0
+  symmetry: 0
+  digestiveSystem: 0
+  skeleton: 0
+  reproduction: 0
+  fecundation: 0
+  image: {fileID: 7176443472411169684}
 --- !u!1 &4148918715434487637
 GameObject:
   m_ObjectHideFlags: 0

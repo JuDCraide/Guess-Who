@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Questions : MonoBehaviour {
     public List<Question> questions;
-    public List<Character> characters;
-    public Character chooseCharacter;
+    public List<Animal> animals;
+    public Animal chooseAnimal;
     public Question curentQuestion;
     public int curentQuestionIndex;
     public List<Question> askedQuestions;
@@ -25,57 +25,75 @@ public class Questions : MonoBehaviour {
     void Start() {
 
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int i = 0; i < characters.Count; i++) {
-            Character tmp = characters[i];
-            int r = Random.Range(i, characters.Count);
-            characters[i] = characters[r];
-            characters[r] = tmp;
+        for (int i = 0; i < animals.Count; i++) {
+            Animal tmp = animals[i];
+            int r = Random.Range(i, animals.Count);
+            animals[i] = animals[r];
+            animals[r] = tmp;
         }
 
-        Character.ClearOpenCharacterList();
-        characters[0].InitializeCharacter(1, "Alex", false, false, false, false, true, false, false, false, false, Hair.black);
-        characters[1].InitializeCharacter(2, "Alfred", false, false, false, false, true, false, true, false, false, Hair.ginger);
-        characters[2].InitializeCharacter(3, "Anita", true, false, false, false, false, false, true, false, true, Hair.blond);
-        characters[3].InitializeCharacter(4, "Anne", true, false, false, false, false, false, false, true, false, Hair.black);
-        characters[4].InitializeCharacter(5, "Bernard", false, false, true, false, false, false, false, true, false, Hair.brunette);
-        characters[5].InitializeCharacter(6, "Bill", false, false, false, true, false, true, false, false, true, Hair.ginger);
-        characters[6].InitializeCharacter(7, "Charles", false, false, false, false, true, false, false, false, false, Hair.blond);
-        characters[7].InitializeCharacter(8, "Claire", true, true, true, false, false, false, false, false, false, Hair.ginger);
-        characters[8].InitializeCharacter(9, "David", false, false, false, true, false, false, false, false, false, Hair.blond);
-        characters[9].InitializeCharacter(10, "Eric", false, false, true, false, false, false, false, false, false, Hair.blond);
-        characters[10].InitializeCharacter(11, "Frans", false, false, false, false, false, false, false, false, false, Hair.ginger);
-        characters[11].InitializeCharacter(12, "George", false, false, true, false, false, false, false, false, false, Hair.white);
-        characters[12].InitializeCharacter(13, "Herman", false, false, false, false, false, true, false, true, false, Hair.ginger);
-        characters[13].InitializeCharacter(14, "Joe", false, true, false, false, false, false, false, false, false, Hair.blond);
-        characters[14].InitializeCharacter(15, "Maria", true, false, true, false, false, false, false, false, false, Hair.brunette);
-        characters[15].InitializeCharacter(16, "Max", false, false, false, false, true, false, false, true, false, Hair.black);
-        characters[16].InitializeCharacter(17, "Paul", false, true, false, false, false, false, false, false, false, Hair.white);
-        characters[17].InitializeCharacter(18, "Peter", false, false, false, false, false, false, true, true, false, Hair.white);
-        characters[18].InitializeCharacter(19, "Philip", false, false, false, true, false, false, false, false, true, Hair.black);
-        characters[19].InitializeCharacter(20, "Richard", false, false, false, true, true, true, false, false, false, Hair.brunette);
-        characters[20].InitializeCharacter(21, "Robert", false, false, false, false, false, false, true, true, true, Hair.brunette);
-        characters[21].InitializeCharacter(22, "Sam", false, true, false, false, false, true, false, false, false, Hair.white);
-        characters[22].InitializeCharacter(23, "Susan", true, false, false, false, false, false, false, false, true, Hair.white);
-        characters[23].InitializeCharacter(24, "Tom", false, true, false, false, false, true, true, false, false, Hair.black);
+        Animal.ClearOpenAnimalList();
+        animals[0].InitializeAnimal(1, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[1].InitializeAnimal(2, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[2].InitializeAnimal(3, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[3].InitializeAnimal(4, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[4].InitializeAnimal(5, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[5].InitializeAnimal(6, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[6].InitializeAnimal(7, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[7].InitializeAnimal(8, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[8].InitializeAnimal(9, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[9].InitializeAnimal(10, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[10].InitializeAnimal(11, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[11].InitializeAnimal(12, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[12].InitializeAnimal(13, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[13].InitializeAnimal(14, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[14].InitializeAnimal(15, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[15].InitializeAnimal(16, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[16].InitializeAnimal(17, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[17].InitializeAnimal(18, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[18].InitializeAnimal(19, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[19].InitializeAnimal(20, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[20].InitializeAnimal(21, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[21].InitializeAnimal(22, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[22].InitializeAnimal(23, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[23].InitializeAnimal(24, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
 
-        int randomindex = Random.Range(0, characters.Count);
-        chooseCharacter = characters[randomindex];
+        int randomindex = Random.Range(0, animals.Count);
+        chooseAnimal = animals[randomindex];
 
         questions = new List<Question>{
-            new Question("Is your character a WOMAN?", Character.IsWoman),
-            new Question("Is your character BALD?", Character.IsBald),
-            new Question("Is your character BLOND?", Character.IsBlond),
-            new Question("Is your character GINGER?", Character.IsGinger),
-            new Question("Is your character BRUNETTE?", Character.IsBrunette),
-            new Question("Does your character has BLACK HAIR?", Character.HasBlackHair),
-            new Question("Does your character has WHITE HAIR?", Character.HasWhiteHair),
-            new Question("Does your character has a HAT?", Character.HasHat),
-            new Question("Does your character has GLASSES?", Character.HasGlasses),
-            new Question("Does your character has a BEARD?", Character.HasBeard),
-            new Question("Does your character has a MUSTACHE?", Character.HasMustache),
-            new Question("Does your character has BLUE EYES?", Character.HasBlueEyes),
-            new Question("Does your character has a BIG NOSE?", Character.HasBigNose),
-            new Question("Does your character has PINK CHEEKS?", Character.HasPinkCheeks),
+            new Question("Does your animal have Intracellular Digestion?", Animal.IntracellularDigestion),
+            new Question("Is your animal a Vertebrate?", Animal.Vertebrate),
+            new Question("Does your animal have Blood?", Animal.Blood),
+            new Question("Can your animal Lay Eggs?", Animal.LayEggs),
+            new Question("Can your animal Fly?", Animal.Fly),
+            new Question("Does your animal has Fur?", Animal.Fur),
+            new Question("Is your animal a Acoelomate?", Animal.CoelomateAcoelomate),
+            new Question("Is your animal a Pseudocoelomate?", Animal.CoelomatePseudocoelomate),
+            new Question("Is your animal a Coelomate?", Animal.CoelomateCoelomate),
+            new Question("Is your animal a Driblastic?", Animal.EmbryonicLeafletDriblastic),
+            new Question("Is your animal a Triblastic?", Animal.EmbryonicLeafletTriblastic),
+            //new Question("Is your animal not ?", Animal.EmbryonicLeafletNone),
+            new Question("Is your animal a Protostome?", Animal.MouthOriginProtostome),
+            new Question("Is your animal a Deuterostome?", Animal.MouthOriginDeuterostome),
+            //new Question("Is your animal a Coelomate?", Animal.MouthOriginNone),
+            new Question("Is your animal a Radially Symmetrical?", Animal.SymmetryRadial),
+            new Question("Is your animal a Bilaterally Symmetrical?", Animal.SymmetryBilateral),
+            //new Question("Is your animal a Coelomate?", Animal.SymmetryNone),
+            new Question("Does your animal have an Incomplete Digestive System?", Animal.DigestiveSystemIncomplete),
+            new Question("Does your animal have a Complete Digestive System?", Animal.DigestiveSystemComplete),
+            //new Question("Is your animal a Coelomate?", Animal.DigestiveSystemNone),
+            new Question("Does your animal have a Exoskeleton?", Animal.SkeletonExoskeleton),
+            new Question("Does your animal have a Endoskeleton?", Animal.SkeletonEndoskeleton),
+            new Question("Does your animal have a Shell?", Animal.SkeletonShell),
+            //new Question("Is your animal a Coelomate?", Animal.SkeletonNone),
+            new Question("Does your animal Reproduce Sexually?", Animal.ReproductionSexually),
+            new Question("Does your animal Reproduce Asexually?", Animal.ReproductionAsexually),
+            new Question("Is your animal a Fecundation Internal?", Animal.FecundationInternal),
+            new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),
+            // new Question("Is your animal a Coelomate?", Animal.HabitatAquatic),
+            // new Question("Is your animal a Coelomate?", Animal.HabitatTerrestrial),
+            // new Question("Is your animal a Coelomate?", Animal.HabitatBoth),            
         };
         askedQuestions = new List<Question>();
         curentQuestionIndex = 0;
@@ -84,7 +102,7 @@ public class Questions : MonoBehaviour {
     }
 
     void Update() {
-        if (Character.openCharacters.Count == 1) {
+        if (Animal.openAnimals.Count == 1) {
             this.ShowFinishGame();
         }
         else {
@@ -92,10 +110,10 @@ public class Questions : MonoBehaviour {
         }
     }
     public void ShowFinishGame() {
-        int finalCharacterId = Character.openCharacters[0];
-        var finalCharacter = characters[finalCharacterId - 1];
-        guessText.SetText("Do you want to choose " + finalCharacter.name + " as your final guess?");
-        string path = finalCharacterId.ToString();
+        int finalAnimalId = Animal.openAnimals[0];
+        var finalAnimal = animals[finalAnimalId - 1];
+        guessText.SetText("Do you want to choose " + finalAnimal.name + " as your final guess?");
+        string path = finalAnimalId.ToString();
         var sprinte = Resources.Load<Sprite>(path);
         Image image = this.guessImage.GetComponent<Image>();
         image.sprite = sprinte;
@@ -112,9 +130,9 @@ public class Questions : MonoBehaviour {
     }
 
     public void FinishGame() {
-        int finalCharacterId = Character.openCharacters[0];
-        var finalCharacter = characters[finalCharacterId - 1];
-        StaticGameResume.setData(askedQuestions, finalCharacter, chooseCharacter);
+        int finalAnimalId = Animal.openAnimals[0];
+        var finalAnimal = animals[finalAnimalId - 1];
+        StaticGameResume.setData(askedQuestions, finalAnimal, chooseAnimal);
         SceneManager.LoadScene("End");
     }
 
@@ -155,7 +173,7 @@ public class Questions : MonoBehaviour {
 
 
     public void AskQuestion() {
-        bool answer = curentQuestion.AskQuestion(chooseCharacter);
+        bool answer = curentQuestion.AskQuestion(chooseAnimal);
         answers.AddAnsware(curentQuestion, answer);
 
         questions.Remove(curentQuestion);
