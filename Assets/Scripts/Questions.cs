@@ -8,8 +8,8 @@ public class Questions : MonoBehaviour {
     public List<Question> questions;
     public List<Animal> animals;
     public Animal chooseAnimal;
-    public Question curentQuestion;
-    public int curentQuestionIndex;
+    public Question currentQuestion;
+    public int currentQuestionIndex;
     public List<Question> askedQuestions;
 
     public TMPro.TextMeshProUGUI questionNumber;
@@ -33,33 +33,33 @@ public class Questions : MonoBehaviour {
         }
 
         Animal.ClearOpenAnimalList();
-        animals[0].InitializeAnimal(1, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[1].InitializeAnimal(2, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[2].InitializeAnimal(3, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[3].InitializeAnimal(4, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[4].InitializeAnimal(5, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[5].InitializeAnimal(6, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[6].InitializeAnimal(7, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[7].InitializeAnimal(8, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[8].InitializeAnimal(9, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[9].InitializeAnimal(10, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[10].InitializeAnimal(11, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[11].InitializeAnimal(12, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[12].InitializeAnimal(13, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[13].InitializeAnimal(14, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[14].InitializeAnimal(15, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[15].InitializeAnimal(16, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[16].InitializeAnimal(17, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[17].InitializeAnimal(18, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[18].InitializeAnimal(19, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[19].InitializeAnimal(20, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[20].InitializeAnimal(21, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[21].InitializeAnimal(22, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[22].InitializeAnimal(23, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
-        animals[23].InitializeAnimal(24, "Humano", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[0].InitializeAnimal(1, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[1].InitializeAnimal(2, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[2].InitializeAnimal(3, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[3].InitializeAnimal(4, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[4].InitializeAnimal(5, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[5].InitializeAnimal(6, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[6].InitializeAnimal(7, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[7].InitializeAnimal(8, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[8].InitializeAnimal(9, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[9].InitializeAnimal(10, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[10].InitializeAnimal(11, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[11].InitializeAnimal(12, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[12].InitializeAnimal(13, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[13].InitializeAnimal(14, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[14].InitializeAnimal(15, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[15].InitializeAnimal(16, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[16].InitializeAnimal(17, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[17].InitializeAnimal(18, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[18].InitializeAnimal(19, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[19].InitializeAnimal(20, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[20].InitializeAnimal(21, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[21].InitializeAnimal(22, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[22].InitializeAnimal(23, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
+        animals[23].InitializeAnimal(24, "Human", false, true, true, false, false, true, Coelomate.Coelomate,EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral,DigestiveSystem.Complete,Skeleton.Endoskeleton,Reproduction.Sexually,Fecundation.Internal);
 
-        int randomindex = Random.Range(0, animals.Count);
-        chooseAnimal = animals[randomindex];
+        int randomIndex = Random.Range(0, animals.Count);
+        chooseAnimal = animals[randomIndex];
 
         questions = new List<Question>{
             new Question("Does your animal have Intracellular Digestion?", Animal.IntracellularDigestion),
@@ -96,7 +96,7 @@ public class Questions : MonoBehaviour {
             // new Question("Is your animal a Coelomate?", Animal.HabitatBoth),            
         };
         askedQuestions = new List<Question>();
-        curentQuestionIndex = 0;
+        currentQuestionIndex = 0;
 
         this.UpdateQuestionText();
     }
@@ -114,9 +114,9 @@ public class Questions : MonoBehaviour {
         var finalAnimal = animals[finalAnimalId - 1];
         guessText.SetText("Do you want to choose " + finalAnimal.name + " as your final guess?");
         string path = finalAnimalId.ToString();
-        var sprinte = Resources.Load<Sprite>(path);
+        var sprite = Resources.Load<Sprite>(path);
         Image image = this.guessImage.GetComponent<Image>();
-        image.sprite = sprinte;
+        image.sprite = sprite;
 
         guessImage.SetActive(true);
         guessText.gameObject.SetActive(true);
@@ -149,36 +149,36 @@ public class Questions : MonoBehaviour {
             }
         }
         else {
-            curentQuestion = questions[curentQuestionIndex];
-            questionNumber.SetText("Question " + (curentQuestionIndex + 1));
-            questionText.SetText(curentQuestion.question);
+            currentQuestion = questions[currentQuestionIndex];
+            questionNumber.SetText("Question " + (currentQuestionIndex + 1));
+            questionText.SetText(currentQuestion.question);
         }
     }
 
     public void NextQuestion() {
-        curentQuestionIndex++;
-        if (curentQuestionIndex >= questions.Count) {
-            curentQuestionIndex = 0;
+        currentQuestionIndex++;
+        if (currentQuestionIndex >= questions.Count) {
+            currentQuestionIndex = 0;
         }
         this.UpdateQuestionText();
     }
 
     public void PreviousQuestion() {
-        curentQuestionIndex--;
-        if (curentQuestionIndex <= -1) {
-            curentQuestionIndex = questions.Count - 1;
+        currentQuestionIndex--;
+        if (currentQuestionIndex <= -1) {
+            currentQuestionIndex = questions.Count - 1;
         }
         this.UpdateQuestionText();
     }
 
 
     public void AskQuestion() {
-        bool answer = curentQuestion.AskQuestion(chooseAnimal);
-        answers.AddAnsware(curentQuestion, answer);
+        bool answer = currentQuestion.AskQuestion(chooseAnimal);
+        answers.AddAnswer(currentQuestion, answer);
 
-        questions.Remove(curentQuestion);
-        askedQuestions.Add(curentQuestion);
-        curentQuestionIndex = 0;
+        questions.Remove(currentQuestion);
+        askedQuestions.Add(currentQuestion);
+        currentQuestionIndex = 0;
         this.UpdateQuestionText();
     }
 

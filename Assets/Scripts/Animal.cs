@@ -59,7 +59,7 @@ public class Animal : MonoBehaviour
     bool layEggs;
     bool fly;
     bool fur;
-    public Coelomate celomate;
+    public Coelomate coelomate;
     public EmbryonicLeaflet embryonicLeaflet;
     public MouthOrigin mouthOrigin;
     public Symmetry symmetry;
@@ -80,7 +80,7 @@ public class Animal : MonoBehaviour
         bool layEggs,
         bool fly,
         bool fur,
-        Coelomate celomate,
+        Coelomate coelomate,
         EmbryonicLeaflet embryonicLeaflet,
         MouthOrigin mouthOrigin,
         Symmetry symmetry,
@@ -92,14 +92,14 @@ public class Animal : MonoBehaviour
     )    {
         this.id = id;
         this.name = name;
-        this.celomate = celomate;
+        this.coelomate = coelomate;
         this.intracellularDigestion = intracellularDigestion;
         this.vertebrate = vertebrate;
         this.blood = blood;
         this.layEggs = layEggs;
         this.fly = fly;
         this.fur = fur;
-        this.celomate = celomate;
+        this.coelomate = coelomate;
         this.embryonicLeaflet = embryonicLeaflet;
         this.mouthOrigin = mouthOrigin;
         this.symmetry = symmetry;
@@ -116,7 +116,7 @@ public class Animal : MonoBehaviour
         bool layEggs,
         bool fly,
         bool fur,
-        Coelomate celomate,
+        Coelomate coelomate,
         EmbryonicLeaflet embryonicLeaflet,
         MouthOrigin mouthOrigin,
         Symmetry symmetry,
@@ -128,14 +128,14 @@ public class Animal : MonoBehaviour
     )    {
         this.id = id;
         this.name = name;
-        this.celomate = celomate;
+        this.coelomate = coelomate;
         this.intracellularDigestion = intracellularDigestion;
         this.vertebrate = vertebrate;
         this.blood = blood;
         this.layEggs = layEggs;
         this.fly = fly;
         this.fur = fur;
-        this.celomate = celomate;
+        this.coelomate = coelomate;
         this.embryonicLeaflet = embryonicLeaflet;
         this.mouthOrigin = mouthOrigin;
         this.symmetry = symmetry;
@@ -206,15 +206,15 @@ public class Animal : MonoBehaviour
 
     public static bool CoelomateAcoelomate(Animal c)
     {
-        return c.celomate == Coelomate.Acoelomate;
+        return c.coelomate == Coelomate.Acoelomate;
     }
     public static bool CoelomatePseudocoelomate(Animal c)
     {
-        return c.celomate == Coelomate.Pseudocoelomate;
+        return c.coelomate == Coelomate.Pseudocoelomate;
     }
     public static bool CoelomateCoelomate(Animal c)
     {
-        return c.celomate == Coelomate.Coelomate;
+        return c.coelomate == Coelomate.Coelomate;
     }
 
     public static bool EmbryonicLeafletDriblastic(Animal c)

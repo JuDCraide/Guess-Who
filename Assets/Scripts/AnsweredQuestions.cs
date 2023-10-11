@@ -5,10 +5,10 @@ using TMPro;
 
 public class AnsweredQuestions : MonoBehaviour {
     public GameObject LateralText;
-    public List<GameObject> answeres;
+    public List<GameObject> answers;
 
-    public void AddAnsware(Question question, bool answer) {
-        int yPosition = 320 - answeres.Count * 52;
+    public void AddAnswer(Question question, bool answer) {
+        int yPosition = 320 - answers.Count * 52;
         var g = Instantiate(LateralText, this.gameObject.transform.position + new Vector3(0, yPosition, 0), Quaternion.identity, this.gameObject.transform);
 
         string answerString = answer ? " YES" : " NO";
@@ -19,7 +19,7 @@ public class AnsweredQuestions : MonoBehaviour {
         ColorUtility.TryParseHtmlString("#21BC3C", out green);
         textComponent.color = answer ? green : red;
 
-        this.answeres.Add(g);
+        this.answers.Add(g);
 
     }
 }
