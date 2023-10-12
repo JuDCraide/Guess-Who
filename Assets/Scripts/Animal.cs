@@ -44,16 +44,32 @@ public enum Fecundation
     Internal, External
 }
 
+public enum Blood
+{
+    Endotherms, // Warm-blooded
+    Ectotherms, // Colds-blooded
+    None
+}
+
+public enum Eggs
+{
+    Alecytes, Oligolycites, Mesolecytes, Telolecites, Centrolecites, None
+}
+
+public enum BodyCoverage
+{
+    Fur, Feathers, Scales, None
+}
 public class Animal : MonoBehaviour
 {
     public int id;
     public string name;
     public string scientificName;
     bool vertebrate;
-    bool blood;
-    bool layEggs;
     bool fly;
-    bool fur;
+    Blood blood;
+    Eggs eggs;
+    BodyCoverage bodyCoverage;
     public Coelomate coelomate;
     public EmbryonicLeaflet embryonicLeaflet;
     public MouthOrigin mouthOrigin;
@@ -67,12 +83,14 @@ public class Animal : MonoBehaviour
     public GameObject image;
     public static List<int> openAnimals = new List<int>();
 
-    public Animal(int id, string name,
+    public Animal(
+        int id,
+        string name,
         bool vertebrate,
-        bool blood,
-        bool layEggs,
         bool fly,
-        bool fur,
+        Blood blood,
+        Eggs eggs,
+        BodyCoverage bodyCoverage,
         Coelomate coelomate,
         EmbryonicLeaflet embryonicLeaflet,
         MouthOrigin mouthOrigin,
@@ -88,9 +106,9 @@ public class Animal : MonoBehaviour
         this.coelomate = coelomate;
         this.vertebrate = vertebrate;
         this.blood = blood;
-        this.layEggs = layEggs;
+        this.eggs = eggs;
         this.fly = fly;
-        this.fur = fur;
+        this.bodyCoverage = bodyCoverage;
         this.coelomate = coelomate;
         this.embryonicLeaflet = embryonicLeaflet;
         this.mouthOrigin = mouthOrigin;
@@ -105,10 +123,10 @@ public class Animal : MonoBehaviour
         int id,
         string name,
         bool vertebrate,
-        bool blood,
-        bool layEggs,
         bool fly,
-        bool fur,
+        Blood blood,
+        Eggs eggs,
+        BodyCoverage bodyCoverage,
         Coelomate coelomate,
         EmbryonicLeaflet embryonicLeaflet,
         MouthOrigin mouthOrigin,
@@ -124,9 +142,9 @@ public class Animal : MonoBehaviour
         this.coelomate = coelomate;
         this.vertebrate = vertebrate;
         this.blood = blood;
-        this.layEggs = layEggs;
+        this.eggs = eggs;
         this.fly = fly;
-        this.fur = fur;
+        this.bodyCoverage = bodyCoverage;
         this.coelomate = coelomate;
         this.embryonicLeaflet = embryonicLeaflet;
         this.mouthOrigin = mouthOrigin;
@@ -172,26 +190,58 @@ public class Animal : MonoBehaviour
         return c.vertebrate;
     }
 
-    public static bool Blood(Animal c)
-    {
-        return c.blood;
-    }
-
-    public static bool LayEggs(Animal c)
-    {
-        return c.layEggs;
-    }
-
     public static bool Fly(Animal c)
     {
         return c.fly;
     }
 
-    public static bool Fur(Animal c)
+    public static bool BloodEndotherms(Animal c)
     {
-        return c.fur;
+        return c.blood == Blood.Endotherms;
+    }
+    public static bool BloodEctotherms(Animal c)
+    {
+        return c.blood == Blood.Ectotherms;
     }
 
+    public static bool EggsAlecytes(Animal c)
+    {
+        return c.eggs == Eggs.Alecytes;
+    }
+
+    public static bool EggsCentrolecites(Animal c)
+    {
+        return c.eggs == Eggs.Centrolecites;
+    }
+
+    public static bool EggsTelolecites(Animal c)
+    {
+        return c.eggs == Eggs.Telolecites;
+    }
+
+    public static bool EggsMesolecytes(Animal c)
+    {
+        return c.eggs == Eggs.Mesolecytes;
+    }
+
+    public static bool EggsOligolycites(Animal c)
+    {
+        return c.eggs == Eggs.Oligolycites;
+    }
+
+
+    public static bool BodyCoverageFur(Animal c)
+    {
+        return c.bodyCoverage == BodyCoverage.Fur;
+    }
+    public static bool BodyCoverageFeathers(Animal c)
+    {
+        return c.bodyCoverage == BodyCoverage.Feathers;
+    }
+    public static bool BodyCoverageScales(Animal c)
+    {
+        return c.bodyCoverage == BodyCoverage.Scales;
+    }
     public static bool CoelomateAcoelomate(Animal c)
     {
         return c.coelomate == Coelomate.Acoelomate;
