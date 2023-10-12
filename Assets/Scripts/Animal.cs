@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum Coelomate
 {
-  Acoelomate, Pseudocoelomate, Coelomate
+    Acoelomate, Pseudocoelomate, Coelomate
 }
 
 public enum EmbryonicLeaflet
@@ -44,16 +44,11 @@ public enum Fecundation
     Internal, External
 }
 
-// public enum Habitat
-// {
-//     Aquatic, Terrestrial, Both
-// }
-
 public class Animal : MonoBehaviour
 {
     public int id;
     public string name;
-    bool intracellularDigestion;
+    public string scientificName;
     bool vertebrate;
     bool blood;
     bool layEggs;
@@ -67,14 +62,12 @@ public class Animal : MonoBehaviour
     public Skeleton skeleton;
     public Reproduction reproduction;
     public Fecundation fecundation;
-    // public Habitat habitat;
 
     [SerializeField]
     public GameObject image;
     public static List<int> openAnimals = new List<int>();
 
     public Animal(int id, string name,
-        bool intracellularDigestion,
         bool vertebrate,
         bool blood,
         bool layEggs,
@@ -88,12 +81,11 @@ public class Animal : MonoBehaviour
         Skeleton skeleton,
         Reproduction reproduction,
         Fecundation fecundation
-        //Habitat habitat
-    )    {
+    )
+    {
         this.id = id;
         this.name = name;
         this.coelomate = coelomate;
-        this.intracellularDigestion = intracellularDigestion;
         this.vertebrate = vertebrate;
         this.blood = blood;
         this.layEggs = layEggs;
@@ -107,10 +99,11 @@ public class Animal : MonoBehaviour
         this.skeleton = skeleton;
         this.reproduction = reproduction;
         this.fecundation = fecundation;
-        //this.habitat = habitat;
     }
 
-    public void InitializeAnimal(int id, string name, bool intracellularDigestion,
+    public void InitializeAnimal(
+        int id,
+        string name,
         bool vertebrate,
         bool blood,
         bool layEggs,
@@ -124,12 +117,11 @@ public class Animal : MonoBehaviour
         Skeleton skeleton,
         Reproduction reproduction,
         Fecundation fecundation
-    //Habitat habitat
-    )    {
+    )
+    {
         this.id = id;
         this.name = name;
         this.coelomate = coelomate;
-        this.intracellularDigestion = intracellularDigestion;
         this.vertebrate = vertebrate;
         this.blood = blood;
         this.layEggs = layEggs;
@@ -143,7 +135,6 @@ public class Animal : MonoBehaviour
         this.skeleton = skeleton;
         this.reproduction = reproduction;
         this.fecundation = fecundation;
-        //this.habitat = habitat;
 
         changeImage();
         Animal.openAnimals.Add(this.id);
@@ -157,7 +148,9 @@ public class Animal : MonoBehaviour
         image.sprite = sprite;
     }
 
-    public static void UpdateOpenAnimalList(int id, bool closeAnimal)
+    public static void UpdateOpenAnimalList(
+        int id,
+        bool closeAnimal)
     {
         if (closeAnimal)
         {
@@ -172,11 +165,6 @@ public class Animal : MonoBehaviour
     public static void ClearOpenAnimalList()
     {
         openAnimals.Clear();
-    }
-
-    public static bool IntracellularDigestion(Animal c)
-    {
-        return c.intracellularDigestion;
     }
 
     public static bool Vertebrate(Animal c)
@@ -305,21 +293,5 @@ public class Animal : MonoBehaviour
     {
         return c.fecundation == Fecundation.External;
     }
-
-    // public static bool HabitatAquatic(Animal c)
-    // {
-    //     return c.habitat == Habitat.Aquatic;
-    // }
-
-    // public static bool HabitatTerrestrial(Animal c)
-    // {
-    //     return c.habitat == Habitat.Terrestrial;
-    // }
-
-    // public static bool HabitatBoth(Animal c)
-    // {
-    //     return c.habitat == Habitat.Both;
-    // }
-
 
 }
