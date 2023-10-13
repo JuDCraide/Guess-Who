@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LateralText: {fileID: 4863564613190106225, guid: a413aacaa9cf82345aec398687810d9c, type: 3}
-  answeres: []
+  answers: []
 --- !u!1 &1381590035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +2962,7 @@ MonoBehaviour:
   - {fileID: 2032058065}
   - {fileID: 1332447323}
   chooseAnimal: {fileID: 0}
-  curentQuestionIndex: 0
+  currentQuestionIndex: 0
   questionNumber: {fileID: 489743910}
   questionText: {fileID: 878810970}
   answers: {fileID: 1374252287}
@@ -3959,6 +3959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6357610753788654413, guid: fa76f3660ab824e45bfefe3834a02266, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 659926737}
     - target: {fileID: 8441921101189860568, guid: fa76f3660ab824e45bfefe3834a02266, type: 3}
       propertyPath: m_RootOrder
       value: -1

@@ -212,7 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   name: 
-  celomate: 0
+  scientificName: 
+  coelomate: 0
   embryonicLeaflet: 0
   mouthOrigin: 0
   symmetry: 0
@@ -403,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1000
+  m_ReferencePixelsPerUnit: 1024
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -411,7 +412,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 1024
   m_PresetInfoIsWorld: 1
 --- !u!114 &6224970992967292793
 MonoBehaviour:
