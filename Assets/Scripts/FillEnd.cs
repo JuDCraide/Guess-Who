@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UI.TableUI;
+using TMPro;
 
 public class FillEnd : MonoBehaviour {
-    public TMPro.TextMeshProUGUI CongratsMessage;
-    public TMPro.TextMeshProUGUI CorrectAnimalText;
-    public TMPro.TextMeshProUGUI GuessedAnimalText;
+    public TextMeshProUGUI CongratsMessage;
+    public TextMeshProUGUI CorrectAnimalText;
+    public TextMeshProUGUI GuessedAnimalText;
     public GameObject CorrectAnimalImage;
     public GameObject GuessedAnimalImage;
     public TableUI QuestionsTable;
 
     void Start() {
-        int rowsCount = StaticGameResume.askedQuestions.Count + 1;
+        int rowsCount = StaticGameResume.askedQuestions.Count + 1;        
         QuestionsTable.Rows = rowsCount;
 
         Color red, green;
@@ -53,6 +54,14 @@ public class FillEnd : MonoBehaviour {
             CongratsMessage.text = "You guessed wrong! Try again!";
             CongratsMessage.color = red;
             QuestionsTable.HeaderColor = red;
+        }
+
+        if(rowsCount==1){
+            QuestionsTable.Rows = 2;
+            QuestionsTable.GetCell(1, 0).text = "No question was asked!";
+            QuestionsTable.GetCell(1, 0).alignment = TextAlignmentOptions.Midline;
+            QuestionsTable.GetCell(1, 1).text = "";
+            QuestionsTable.GetCell(1, 2).text = "";
         }
     }
 
