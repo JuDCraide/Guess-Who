@@ -16,8 +16,8 @@ public static class StaticGameResume {
         new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),     
     };
     
-    public static Animal guessedAnimal = new Animal(1, "Human", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
-    public static Animal correctAnimal = new Animal(3, "Human", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
+    public static Animal guessedAnimal = new Animal(1, "Human", "SN", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
+    public static Animal correctAnimal = new Animal(3, "Human", "SN", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
 
     public static void setData(List<Question> askedQuestions, Animal guessedAnimal, Animal correctAnimal) {
         StaticGameResume.askedQuestions = askedQuestions;

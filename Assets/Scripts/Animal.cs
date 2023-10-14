@@ -53,7 +53,7 @@ public enum Blood
 
 public enum Eggs
 {
-    Alecytes, Oligolycites, Mesolecytes, Telolecites, Centrolecites, None
+    Oviparous, Ovoviviparous, Viviparous, None
 }
 
 public enum BodyCoverage
@@ -65,11 +65,11 @@ public class Animal : MonoBehaviour
     public int id;
     public string name;
     public string scientificName;
-    bool vertebrate;
-    bool fly;
-    Blood blood;
-    Eggs eggs;
-    BodyCoverage bodyCoverage;
+    public bool vertebrate;
+    public bool fly;
+    public Blood blood;
+    public Eggs eggs;
+    public BodyCoverage bodyCoverage;
     public Coelomate coelomate;
     public EmbryonicLeaflet embryonicLeaflet;
     public MouthOrigin mouthOrigin;
@@ -86,6 +86,7 @@ public class Animal : MonoBehaviour
     public Animal(
         int id,
         string name,
+        string scientificName,
         bool vertebrate,
         bool fly,
         Blood blood,
@@ -103,6 +104,7 @@ public class Animal : MonoBehaviour
     {
         this.id = id;
         this.name = name;
+        this.scientificName = scientificName;
         this.coelomate = coelomate;
         this.vertebrate = vertebrate;
         this.blood = blood;
@@ -122,6 +124,7 @@ public class Animal : MonoBehaviour
     public void InitializeAnimal(
         int id,
         string name,
+        string scientificName,
         bool vertebrate,
         bool fly,
         Blood blood,
@@ -139,6 +142,7 @@ public class Animal : MonoBehaviour
     {
         this.id = id;
         this.name = name;
+        this.scientificName = scientificName;
         this.coelomate = coelomate;
         this.vertebrate = vertebrate;
         this.blood = blood;
@@ -204,29 +208,19 @@ public class Animal : MonoBehaviour
         return c.blood == Blood.Ectotherms;
     }
 
-    public static bool EggsAlecytes(Animal c)
+    public static bool EggsOviparous(Animal c)
     {
-        return c.eggs == Eggs.Alecytes;
+        return c.eggs == Eggs.Oviparous;
     }
 
-    public static bool EggsCentrolecites(Animal c)
+    public static bool EggsOvoviviparous(Animal c)
     {
-        return c.eggs == Eggs.Centrolecites;
+        return c.eggs == Eggs.Ovoviviparous;
     }
 
-    public static bool EggsTelolecites(Animal c)
+    public static bool EggsViviparous(Animal c)
     {
-        return c.eggs == Eggs.Telolecites;
-    }
-
-    public static bool EggsMesolecytes(Animal c)
-    {
-        return c.eggs == Eggs.Mesolecytes;
-    }
-
-    public static bool EggsOligolycites(Animal c)
-    {
-        return c.eggs == Eggs.Oligolycites;
+        return c.eggs == Eggs.Viviparous;
     }
 
 
