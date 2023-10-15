@@ -31,8 +31,8 @@ public class FillEnd : MonoBehaviour {
             QuestionsTable.GetCell(i, 2).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctAnimal) ? "Yes" : "No");
         }
 
-        CorrectAnimalText.text = "The Animal was:\n" + StaticGameResume.correctAnimal.name;
-        GuessedAnimalText.text = "You guessed:\n" + StaticGameResume.guessedAnimal.name;
+        CorrectAnimalText.text = "The Animal was:\n" + StaticGameResume.correctAnimal.name + "\n(" + StaticGameResume.correctAnimal.scientificName +")";
+        GuessedAnimalText.text = "You guessed:\n" + StaticGameResume.guessedAnimal.name + "\n(" + StaticGameResume.guessedAnimal.scientificName + ")"; ;
 
         string path = StaticGameResume.guessedAnimal.id.ToString();
         var sprinte = Resources.Load<Sprite>(path);
