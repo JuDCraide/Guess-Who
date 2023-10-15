@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Questions : MonoBehaviour
-{
+public class Questions : MonoBehaviour {
     public List<Question> questions;
     public List<Animal> animals;
     public Animal chooseAnimal;
@@ -23,12 +22,10 @@ public class Questions : MonoBehaviour
     public Button guessButton;
 
 
-    void Start()
-    {
+    void Start() {
 
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int i = 0; i < animals.Count; i++)
-        {
+        for (int i = 0; i < animals.Count; i++) {
             Animal tmp = animals[i];
             int r = Random.Range(i, animals.Count);
             animals[i] = animals[r];
@@ -100,19 +97,15 @@ public class Questions : MonoBehaviour
         this.UpdateQuestionText();
     }
 
-    void Update()
-    {
-        if (Animal.openAnimals.Count == 1)
-        {
+    void Update() {
+        if (Animal.openAnimals.Count == 1) {
             this.ShowFinishGame();
         }
-        else
-        {
+        else {
             this.HideFinishGame();
         }
     }
-    public void ShowFinishGame()
-    {
+    public void ShowFinishGame() {
         int finalAnimalId = Animal.openAnimals[0];
         var finalAnimal = animals[finalAnimalId - 1];
         guessText.SetText("Do you want to choose " + finalAnimal.name + " as your final guess?");
@@ -126,68 +119,56 @@ public class Questions : MonoBehaviour
         guessButton.gameObject.SetActive(true);
     }
 
-    public void HideFinishGame()
-    {
+    public void HideFinishGame() {
         guessImage.SetActive(false);
         guessText.gameObject.SetActive(false);
         guessButton.gameObject.SetActive(false);
     }
 
-    public void FinishGame()
-    {
+    public void FinishGame() {
         int finalAnimalId = Animal.openAnimals[0];
         var finalAnimal = animals[finalAnimalId - 1];
         StaticGameResume.setData(askedQuestions, finalAnimal, chooseAnimal);
         SceneManager.LoadScene("End");
     }
 
-    public void UpdateQuestionText()
-    {
-        if (askedQuestions.Count >= 10)
-        {
+    public void UpdateQuestionText() {
+        if (askedQuestions.Count >= 10) {
             questionNumber.SetText("You already asked 10 questions.");
             questionText.SetText("You can not ask any more questions!");
 
             var buttons = GameObject.FindObjectsOfType<Button>();
-            foreach (Button button in buttons)
-            {
-                if (button.name != "GuessButton")
-                {
+            foreach (Button button in buttons) {
+                if (button.name != "GuessButton") {
                     button.interactable = false;
                 }
             }
         }
-        else
-        {
+        else {
             currentQuestion = questions[currentQuestionIndex];
             questionNumber.SetText("Question " + (currentQuestionIndex + 1));
             questionText.SetText(currentQuestion.question);
         }
     }
 
-    public void NextQuestion()
-    {
+    public void NextQuestion() {
         currentQuestionIndex++;
-        if (currentQuestionIndex >= questions.Count)
-        {
+        if (currentQuestionIndex >= questions.Count) {
             currentQuestionIndex = 0;
         }
         this.UpdateQuestionText();
     }
 
-    public void PreviousQuestion()
-    {
+    public void PreviousQuestion() {
         currentQuestionIndex--;
-        if (currentQuestionIndex <= -1)
-        {
+        if (currentQuestionIndex <= -1) {
             currentQuestionIndex = questions.Count - 1;
         }
         this.UpdateQuestionText();
     }
 
 
-    public void AskQuestion()
-    {
+    public void AskQuestion() {
         bool answer = currentQuestion.AskQuestion(chooseAnimal);
         answers.AddAnswer(currentQuestion, answer);
 

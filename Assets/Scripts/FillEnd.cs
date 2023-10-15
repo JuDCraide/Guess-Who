@@ -15,7 +15,7 @@ public class FillEnd : MonoBehaviour {
     public TableUI QuestionsTable;
 
     void Start() {
-        int rowsCount = StaticGameResume.askedQuestions.Count + 1;        
+        int rowsCount = StaticGameResume.askedQuestions.Count + 1;
         QuestionsTable.Rows = rowsCount;
 
         Color red, green;
@@ -56,7 +56,7 @@ public class FillEnd : MonoBehaviour {
             QuestionsTable.HeaderColor = red;
         }
 
-        if(rowsCount==1){
+        if (rowsCount == 1) {
             QuestionsTable.Rows = 2;
             QuestionsTable.GetCell(1, 0).text = "No question was asked!";
             QuestionsTable.GetCell(1, 0).alignment = TextAlignmentOptions.Midline;

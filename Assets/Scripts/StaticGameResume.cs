@@ -13,9 +13,9 @@ public static class StaticGameResume {
         new Question("Does your animal Reproduce Sexually?", Animal.ReproductionSexually),
         new Question("Does your animal Reproduce Asexually?", Animal.ReproductionAsexually),
         new Question("Is your animal a Fecundation Internal?", Animal.FecundationInternal),
-        new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),     
+        new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),
     };
-    
+
     public static Animal guessedAnimal = new Animal(1, "Human", "SN", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
     public static Animal correctAnimal = new Animal(3, "Human", "SN", true, false, Blood.Endotherms, Eggs.None, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, DigestiveSystem.Complete, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
 
