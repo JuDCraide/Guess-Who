@@ -41,7 +41,7 @@ public class Questions : MonoBehaviour {
         animals[5].InitializeAnimal(6, "Pomba", "Columba livia", true, true, false, Blood.Endotherms, Eggs.Oviparous, BodyCoverage.Feathers, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
         animals[6].InitializeAnimal(7, "Gorila", "Gorilla gorilla gorilla", true, false, false, Blood.Endotherms, Eggs.Viviparous, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
         animals[7].InitializeAnimal(8, "Borboleta", "Limenitis archippus", false, true, false, Blood.None, Eggs.Oviparous, BodyCoverage.None, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Protostome, Symmetry.Bilateral, Skeleton.Exoskeleton, Reproduction.Sexually, Fecundation.Internal);
-        animals[8].InitializeAnimal(9, "Escorpião", "Heterometrus laoticus", false, false, true, Blood.None, Eggs.Viviparous, BodyCoverage.None, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Exoskeleton, Reproduction.Sexually, Fecundation.Internal);
+        animals[8].InitializeAnimal(9, "Escorpião", "Heterometrus laoticus", false, false, true, Blood.None, Eggs.Viviparous, BodyCoverage.None, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Protostome, Symmetry.Bilateral, Skeleton.Exoskeleton, Reproduction.Sexually, Fecundation.Internal);
         animals[9].InitializeAnimal(10, "Sapo", "Litoria chloris", true, false, false, Blood.Ectotherms, Eggs.Oviparous, BodyCoverage.None, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.External);
         animals[10].InitializeAnimal(11, "Esponja", "Aplysina fistularis", false, false, false, Blood.None, Eggs.Oviparous, BodyCoverage.None, Coelomate.Acoelomate, EmbryonicLeaflet.None, MouthOrigin.None, Symmetry.Radial, Skeleton.None, Reproduction.Both, Fecundation.External);
         animals[11].InitializeAnimal(12, "Água viva", "Chrysaora fuscescens", false, false, false, Blood.None, Eggs.Oviparous, BodyCoverage.None, Coelomate.Acoelomate, EmbryonicLeaflet.Driblastic, MouthOrigin.None, Symmetry.Radial, Skeleton.None, Reproduction.Both, Fecundation.External);
@@ -61,8 +61,7 @@ public class Questions : MonoBehaviour {
         int randomIndex = Random.Range(0, animals.Count);
         chooseAnimal = animals[randomIndex];
 
-        questions = new List<Question>{
-            new Question("Is your animal a Vertebrate?", Animal.Vertebrate),
+        questions = new List<Question>{            
             new Question("Can your animal Fly?", Animal.Fly),
             new Question("Is your animal Venomous?", Animal.Venomous),
             new Question("Is your animal Endotherm (Warm-Blooded)?", Animal.BloodEndotherms),
@@ -73,6 +72,7 @@ public class Questions : MonoBehaviour {
             new Question("Does your animal has Fur?", Animal.BodyCoverageFur),
             new Question("Does your animal has Feathers?", Animal.BodyCoverageFeathers),
             new Question("Does your animal has Scales?", Animal.BodyCoverageScales),
+            new Question("Does your animal have a Shell?", Animal.BodyCoverageShell),
             new Question("Is your animal a Acoelomate?", Animal.CoelomateAcoelomate),
             new Question("Is your animal a Pseudocoelomate?", Animal.CoelomatePseudocoelomate),
             new Question("Is your animal a Coelomate?", Animal.CoelomateCoelomate),
@@ -83,12 +83,12 @@ public class Questions : MonoBehaviour {
             new Question("Is your animal a Radially Symmetrical?", Animal.SymmetryRadial),
             new Question("Is your animal a Bilaterally Symmetrical?", Animal.SymmetryBilateral),
             new Question("Does your animal have a Exoskeleton?", Animal.SkeletonExoskeleton),
-            new Question("Does your animal have a Endoskeleton?", Animal.SkeletonEndoskeleton),
-            new Question("Does your animal have a Shell?", Animal.BodyCoverageShell),
+            new Question("Does your animal have a Endoskeleton?", Animal.SkeletonEndoskeleton),            
             new Question("Does your animal Reproduce Sexually?", Animal.ReproductionSexually),
             new Question("Does your animal Reproduce Asexually?", Animal.ReproductionAsexually),
-            new Question("Is your animal a Fecundation Internal?", Animal.FecundationInternal),
-            new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),
+            new Question("Does your your animal have Fecundation Internal?", Animal.FecundationInternal),
+            new Question("Does your your animal have Fecundation External?", Animal.FecundationExternal),
+            new Question("Is your animal a Vertebrate?", Animal.Vertebrate),
         };
         askedQuestions = new List<Question>();
         currentQuestionIndex = 0;
