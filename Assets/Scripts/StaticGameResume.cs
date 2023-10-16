@@ -14,8 +14,8 @@ public static class StaticGameResume {
         new Question("Is your animal a Fecundation External?", Animal.FecundationExternal),
     };
 
-    public static Animal guessedAnimal = new Animal(1, "Morcego", "Pteropus giganteus", true, true, false, Blood.Endotherms, Eggs.Viviparous, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
-    public static Animal correctAnimal = new Animal(12, "Água viva", "Chrysaora fuscescens", false, false, false, Blood.None, Eggs.Oviparous, BodyCoverage.None, Coelomate.Acoelomate, EmbryonicLeaflet.Driblastic, MouthOrigin.None, Symmetry.Radial, Skeleton.None, Reproduction.Both, Fecundation.External);
+    public static Animal guessedAnimal = new Animal(1, "Morcego", "Pteropus giganteus", true, true, false, Blood.Endotherms, Eggs.Viviparous, BodyCoverage.Fur, Coelomate.Coelomate, EmbryonicLeaflet.Triploblastic, MouthOrigin.Deuterostome, Symmetry.Bilateral, Skeleton.Endoskeleton, Reproduction.Sexually, Fecundation.Internal);
+    public static Animal correctAnimal = new Animal(12, "ï¿½gua viva", "Chrysaora fuscescens", false, false, false, Blood.None, Eggs.Oviparous, BodyCoverage.None, Coelomate.Acoelomate, EmbryonicLeaflet.Diploblastic, MouthOrigin.None, Symmetry.Radial, Skeleton.None, Reproduction.Both, Fecundation.External);
 
     public static void setData(List<Question> askedQuestions, Animal guessedAnimal, Animal correctAnimal) {
         StaticGameResume.askedQuestions = askedQuestions;

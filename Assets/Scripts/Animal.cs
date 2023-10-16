@@ -9,7 +9,7 @@ public enum Coelomate {
 }
 
 public enum EmbryonicLeaflet {
-    Driblastic, Triblastic, None
+    Diploblastic, Triploblastic, None
 }
 
 public enum MouthOrigin {
@@ -221,11 +221,11 @@ public class Animal : MonoBehaviour {
         return c.coelomate == Coelomate.Coelomate;
     }
 
-    public static bool EmbryonicLeafletDriblastic(Animal c) {
-        return c.embryonicLeaflet == EmbryonicLeaflet.Driblastic;
+    public static bool EmbryonicLeafletDiploblastic(Animal c) {
+        return c.embryonicLeaflet == EmbryonicLeaflet.Diploblastic;
     }
-    public static bool EmbryonicLeafletTriblastic(Animal c) {
-        return c.embryonicLeaflet == EmbryonicLeaflet.Triblastic;
+    public static bool EmbryonicLeafletTriploblastic(Animal c) {
+        return c.embryonicLeaflet == EmbryonicLeaflet.Triploblastic;
     }
 
     public static bool MouthOriginProtostome(Animal c) {
