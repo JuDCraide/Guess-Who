@@ -67,8 +67,8 @@ public class Questions : MonoBehaviour
         questions = new List<Question>{
             new Question("Seu animal pode Voar?", Animal.Fly),
             new Question("Seu animal é Venenoso?", Animal.Venomous),
-            new Question("Seu animal é Endotermo (Sangue Quente)?", Animal.BloodEndotherms),
-            new Question("Seu animal é Ectotermo (Sangue Frio)?", Animal.BloodEctotherms),
+            new Question("Seu animal é Endotérmico (Sangue Quente)?", Animal.BloodEndotherms),
+            new Question("Seu animal é Ectotérmico (Sangue Frio)?", Animal.BloodEctotherms),
             new Question("Seu animal é Ovíparo?", Animal.EggsOviparous),
             new Question("Seu animal é Ovovivíparo?", Animal.EggsOvoviviparous),
             new Question("Seu animal é Vivíparo?", Animal.EggsViviparous),
