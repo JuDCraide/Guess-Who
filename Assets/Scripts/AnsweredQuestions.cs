@@ -11,7 +11,7 @@ public class AnsweredQuestions : MonoBehaviour {
         int yPosition = 320 - answers.Count * 52;
         var g = Instantiate(LateralText, this.gameObject.transform.position + new Vector3(0, yPosition, 0), Quaternion.identity, this.gameObject.transform);
 
-        string answerString = answer ? " YES" : " NO";
+        string answerString = answer ? " SIM" : " NÃO";
         var textComponent = g.GetComponent<TextMeshProUGUI>();
         textComponent.text = question.question + answerString;
         Color red, green;

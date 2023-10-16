@@ -27,12 +27,16 @@ public class FillEnd : MonoBehaviour {
 
         for (int i = 1; i < rowsCount; i++) {
             QuestionsTable.GetCell(i, 0).text = "   " + StaticGameResume.askedQuestions[i - 1].question;
-            QuestionsTable.GetCell(i, 1).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.guessedAnimal) ? "Yes" : "No");
-            QuestionsTable.GetCell(i, 2).text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctAnimal) ? "Yes" : "No");
+            var cell1  = QuestionsTable.GetCell(i, 1);
+            cell1.text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.guessedAnimal) ? "Sim" : "Não");
+            cell1.alignment = TextAlignmentOptions.Midline;
+            var cell2  = QuestionsTable.GetCell(i, 2);
+            cell2.text = "   " + (StaticGameResume.askedQuestions[i - 1].AskQuestion(StaticGameResume.correctAnimal) ? "Sim" : "Não");
+            cell2.alignment = TextAlignmentOptions.Midline;
         }
 
-        CorrectAnimalText.text = "The Animal was:\n" + StaticGameResume.correctAnimal.name + "\n(" + StaticGameResume.correctAnimal.scientificName +")";
-        GuessedAnimalText.text = "You guessed:\n" + StaticGameResume.guessedAnimal.name + "\n(" + StaticGameResume.guessedAnimal.scientificName + ")"; ;
+        CorrectAnimalText.text = "O animal era:\n" + StaticGameResume.correctAnimal.name + "\n(" + StaticGameResume.correctAnimal.scientificName +")";
+        GuessedAnimalText.text = "Você adivinhou:\n" + StaticGameResume.guessedAnimal.name + "\n(" + StaticGameResume.guessedAnimal.scientificName + ")"; ;
 
         string path = StaticGameResume.guessedAnimal.id.ToString();
         var sprinte = Resources.Load<Sprite>(path);
@@ -45,20 +49,20 @@ public class FillEnd : MonoBehaviour {
         image.sprite = sprinte;
 
         if (StaticGameResume.guessedAnimal.id == StaticGameResume.correctAnimal.id) {
-            CongratsMessage.text = "Congratulations you won!";
+            CongratsMessage.text = "Parabéns você ganhou!";
             CongratsMessage.color = green;
             QuestionsTable.HeaderColor = green;
             QuestionsTable.Columns = 2;
         }
         else {
-            CongratsMessage.text = "You guessed wrong! Try again!";
+            CongratsMessage.text = "Que pena, você errou!\nTente novamente!";
             CongratsMessage.color = red;
             QuestionsTable.HeaderColor = red;
         }
 
         if (rowsCount == 1) {
             QuestionsTable.Rows = 2;
-            QuestionsTable.GetCell(1, 0).text = "No question was asked!";
+            QuestionsTable.GetCell(1, 0).text = "Nenhuma pergunta foi feita.";
             QuestionsTable.GetCell(1, 0).alignment = TextAlignmentOptions.Midline;
             QuestionsTable.GetCell(1, 1).text = "";
             QuestionsTable.GetCell(1, 2).text = "";

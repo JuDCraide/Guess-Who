@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Questions : MonoBehaviour {
+public class Questions : MonoBehaviour
+{
     public List<Question> questions;
     public List<Animal> animals;
     public Animal chooseAnimal;
@@ -22,10 +23,12 @@ public class Questions : MonoBehaviour {
     public Button guessButton;
 
 
-    void Start() {
+    void Start()
+    {
 
         // Knuth shuffle algorithm :: courtesy of Wikipedia :)
-        for (int i = 0; i < animals.Count; i++) {
+        for (int i = 0; i < animals.Count; i++)
+        {
             Animal tmp = animals[i];
             int r = Random.Range(i, animals.Count);
             animals[i] = animals[r];
@@ -61,34 +64,34 @@ public class Questions : MonoBehaviour {
         int randomIndex = Random.Range(0, animals.Count);
         chooseAnimal = animals[randomIndex];
 
-        questions = new List<Question>{            
-            new Question("Can your animal Fly?", Animal.Fly),
-            new Question("Is your animal Venomous?", Animal.Venomous),
-            new Question("Is your animal Endotherm (Warm-Blooded)?", Animal.BloodEndotherms),
-            new Question("Is your animal Ectotherms (Cold-Blooded)?", Animal.BloodEctotherms),
-            new Question("Does your animal have Oviparous Eggs?", Animal.EggsOviparous),
-            new Question("Does your animal have Ovoviviparous Eggs?", Animal.EggsOvoviviparous),
-            new Question("Does your animal have Viviparous Eggs?", Animal.EggsViviparous),
-            new Question("Does your animal has Fur?", Animal.BodyCoverageFur),
-            new Question("Does your animal has Feathers?", Animal.BodyCoverageFeathers),
-            new Question("Does your animal has Scales?", Animal.BodyCoverageScales),
-            new Question("Does your animal have a Shell?", Animal.BodyCoverageShell),
-            new Question("Is your animal a Acoelomate?", Animal.CoelomateAcoelomate),
-            new Question("Is your animal a Pseudocoelomate?", Animal.CoelomatePseudocoelomate),
-            new Question("Is your animal a Coelomate?", Animal.CoelomateCoelomate),
-            new Question("Is your animal a Diploblastic?", Animal.EmbryonicLeafletDiploblastic),
-            new Question("Is your animal a Triploblastic?", Animal.EmbryonicLeafletTriploblastic),
-            new Question("Is your animal a Protostome?", Animal.MouthOriginProtostome),
-            new Question("Is your animal a Deuterostome?", Animal.MouthOriginDeuterostome),
-            new Question("Is your animal a Radially Symmetrical?", Animal.SymmetryRadial),
-            new Question("Is your animal a Bilaterally Symmetrical?", Animal.SymmetryBilateral),
-            new Question("Does your animal have a Exoskeleton?", Animal.SkeletonExoskeleton),
-            new Question("Does your animal have a Endoskeleton?", Animal.SkeletonEndoskeleton),            
-            new Question("Does your animal Reproduce Sexually?", Animal.ReproductionSexually),
-            new Question("Does your animal Reproduce Asexually?", Animal.ReproductionAsexually),
-            new Question("Does your your animal have Fecundation Internal?", Animal.FecundationInternal),
-            new Question("Does your your animal have Fecundation External?", Animal.FecundationExternal),
-            new Question("Is your animal a Vertebrate?", Animal.Vertebrate),
+        questions = new List<Question>{
+            new Question("Seu animal pode Voar?", Animal.Fly),
+            new Question("Seu animal é Venenoso?", Animal.Venomous),
+            new Question("Seu animal é Endotermo (Sangue Quente)?", Animal.BloodEndotherms),
+            new Question("Seu animal é Ectotermo (Sangue Frio)?", Animal.BloodEctotherms),
+            new Question("Seu animal é Ovíparo?", Animal.EggsOviparous),
+            new Question("Seu animal é Ovovivíparo?", Animal.EggsOvoviviparous),
+            new Question("Seu animal é Vivíparo?", Animal.EggsViviparous),
+            new Question("Seu animal tem Pelos?", Animal.BodyCoverageFur),
+            new Question("Seu animal tem Penas?", Animal.BodyCoverageFeathers),
+            new Question("Seu animal tem Escamas?", Animal.BodyCoverageScales),
+            new Question("Seu animal tem Concha?", Animal.BodyCoverageShell),
+            new Question("Seu animal é Acelomado?", Animal.CoelomateAcoelomate),
+            new Question("Seu animal é Pseudocelomado?", Animal.CoelomatePseudocoelomate),
+            new Question("Seu animal é Celomado?", Animal.CoelomateCoelomate),
+            new Question("Seu animal é Diblástico?", Animal.EmbryonicLeafletDiploblastic),
+            new Question("Seu animal é Triblástico?", Animal.EmbryonicLeafletTriploblastic),
+            new Question("Seu animal é Protostômio?", Animal.MouthOriginProtostome),
+            new Question("Seu animal é Deuterostômio?", Animal.MouthOriginDeuterostome),
+            new Question("Seu animal tem Simetria Radial?", Animal.SymmetryRadial),
+            new Question("Seu animal tem Simetria Bilateral?", Animal.SymmetryBilateral),
+            new Question("Seu animal tem um Exoesqueleto?", Animal.SkeletonExoskeleton),
+            new Question("Seu animal tem um Endosqueleto?", Animal.SkeletonEndoskeleton),
+            new Question("Seu animal faz Reprodução Sexuada?", Animal.ReproductionSexually),
+            new Question("Seu animal faz Reprodução Assexuada?", Animal.ReproductionAsexually),
+            new Question("Seu animal tem Fecundação Interna?", Animal.FecundationInternal),
+            new Question("Seu animal tem Fecundação Externa?", Animal.FecundationExternal),
+            new Question("Seu animal é Vertebrado?", Animal.Vertebrate),
         };
         askedQuestions = new List<Question>();
         currentQuestionIndex = 0;
@@ -96,18 +99,22 @@ public class Questions : MonoBehaviour {
         this.UpdateQuestionText();
     }
 
-    void Update() {
-        if (Animal.openAnimals.Count == 1) {
+    void Update()
+    {
+        if (Animal.openAnimals.Count == 1)
+        {
             this.ShowFinishGame();
         }
-        else {
+        else
+        {
             this.HideFinishGame();
         }
     }
-    public void ShowFinishGame() {
+    public void ShowFinishGame()
+    {
         int finalAnimalId = Animal.openAnimals[0];
         var finalAnimal = animals[finalAnimalId - 1];
-        guessText.SetText("Do you want to choose " + finalAnimal.name + " as your final guess?");
+        guessText.SetText("Você quer adivinhar " + finalAnimal.name + ", como escolha final?");
         string path = finalAnimalId.ToString();
         var sprite = Resources.Load<Sprite>(path);
         Image image = this.guessImage.GetComponent<Image>();
@@ -118,56 +125,68 @@ public class Questions : MonoBehaviour {
         guessButton.gameObject.SetActive(true);
     }
 
-    public void HideFinishGame() {
+    public void HideFinishGame()
+    {
         guessImage.SetActive(false);
         guessText.gameObject.SetActive(false);
         guessButton.gameObject.SetActive(false);
     }
 
-    public void FinishGame() {
+    public void FinishGame()
+    {
         int finalAnimalId = Animal.openAnimals[0];
         var finalAnimal = animals[finalAnimalId - 1];
         StaticGameResume.setData(askedQuestions, finalAnimal, chooseAnimal);
         SceneManager.LoadScene("End");
     }
 
-    public void UpdateQuestionText() {
-        if (askedQuestions.Count >= 10) {
-            questionNumber.SetText("You already asked 10 questions.");
-            questionText.SetText("You can not ask any more questions!");
+    public void UpdateQuestionText()
+    {
+        if (askedQuestions.Count >= 10)
+        {
+            questionNumber.SetText("Você já fez 10 perguntas.");
+            questionText.SetText("Você não pode fazer mais perguntas!");
 
             var buttons = GameObject.FindObjectsOfType<Button>();
-            foreach (Button button in buttons) {
-                if (button.name != "GuessButton") {
+            foreach (Button button in buttons)
+            {
+                if (button.name != "GuessButton")
+                {
                     button.interactable = false;
                 }
             }
         }
-        else {
+        else
+        {
             currentQuestion = questions[currentQuestionIndex];
-            questionNumber.SetText("Question " + (currentQuestionIndex + 1));
+            questionNumber.SetText("Pergunta " + (currentQuestionIndex + 1));
             questionText.SetText(currentQuestion.question);
         }
     }
 
-    public void NextQuestion() {
+    public void NextQuestion()
+    {
         currentQuestionIndex++;
-        if (currentQuestionIndex >= questions.Count) {
+        if (currentQuestionIndex >= questions.Count)
+        {
             currentQuestionIndex = 0;
         }
         this.UpdateQuestionText();
     }
 
-    public void PreviousQuestion() {
+    public void PreviousQuestion()
+    {
         currentQuestionIndex--;
-        if (currentQuestionIndex <= -1) {
+        if (currentQuestionIndex <= -1)
+        {
             currentQuestionIndex = questions.Count - 1;
         }
         this.UpdateQuestionText();
     }
 
 
-    public void AskQuestion() {
+    public void AskQuestion()
+    {
         bool answer = currentQuestion.AskQuestion(chooseAnimal);
         answers.AddAnswer(currentQuestion, answer);
 
